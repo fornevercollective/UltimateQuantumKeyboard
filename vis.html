@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Keyboard Layout Matrix 3D</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0a0a1a, #1a1a2e, #0a1a1a);
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+        }
+        
+        #container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        #info {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #00ff88;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #00ff88;
+            max-width: 450px;
+            backdrop-filter: blur(15px);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        #controls {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #00ff88;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #00ff88;
+            backdrop-filter: blur(15px);
+        }
+
+        #layout-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #00ff88;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #00ff88;
+            backdrop-filter: blur(15px);
+            max-width: 350px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        #script-filter {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: #00ff88;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #00ff88;
+            backdrop-filter: blur(15px);
+        }
+        
+        .control-item {
+            margin: 8px 0;
+        }
+        
+        button, select {
+            background: rgba(0, 255, 136, 0.2);
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 2px;
+            font-family: inherit;
+            font-size: 11px;
+        }
+        
+        button:hover, select:hover {
+            background: rgba(0, 255, 136, 0.4);
+        }
+
+        .layout-category {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 6px;
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        .category-title {
+            font-weight: bold;
+            color: #00ffaa;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .layout-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            padding: 4px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 11px;
+        }
+
+        .layout-item:hover {
+            background: rgba(0, 255, 136, 0.15);
+            transform: translateX(5px);
+        }
+
+        .layout-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            margin-right: 8px;
+        }
+
+        .layout-name {
+            font-weight: bold;
+            margin-right: 8px;
+            min-width: 80px;
+        }
+
+        .layout-script {
+            font-size: 10px;
+            opacity: 0.7;
+            margin-left: auto;
+        }
+
+        .stats-panel {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 255, 136, 0.05);
+            border-radius: 6px;
+            font-size: 11px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+        }
+
+        .filter-btn {
+            padding: 4px 8px;
+            font-size: 10px;
+            border-radius: 3px;
+        }
+
+        .filter-btn.active {
+            background: rgba(0, 255, 136, 0.6);
+            color: #000;
+        }
+
+        .connection-legend {
+            margin-top: 10px;
+            font-size: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 3px 0;
+        }
+
+        .legend-line {
+            width: 20px;
+            height: 2px;
+            margin-right: 8px;
+            border-radius: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="info">
+            <h3>🌍 Global Keyboard Layout Matrix</h3>
+            <p id="layout-count"><strong>50+ Layouts</strong> from 6 Script Families</p>
+            <p id="selected-info">Explore layouts by clicking or using filters</p>
+            
+            <div class="connection-legend">
+                <strong>Connection Types:</strong>
+                <div class="legend-item">
+                    <div class="legend-line" style="background: #00ff88;"></div>
+                    <span>Intra-Layout</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line" style="background: #4488ff;"></div>
+                    <span>Cross-Script</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line" style="background: #ff4488;"></div>
+                    <span>Same Language</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line" style="background: #ffaa44;"></div>
+                    <span>Ergonomic Variant</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-line" style="background: #aa44ff;"></div>
+                    <span>Mobile/Chorded</span>
+                </div>
+            </div>
+
+            <div class="stats-panel">
+                <div>Active Layouts: <span id="active-count">50</span></div>
+                <div>Visible Connections: <span id="connection-count">0</span></div>
+                <div>Script Families: <span id="script-count">6</span></div>
+            </div>
+        </div>
+
+        <div id="layout-selector">
+            <h4>📚 Layout Categories</h4>
+            <div id="layout-categories"></div>
+        </div>
+
+        <div id="script-filter">
+            <h4>🔍 Script Filters</h4>
+            <div class="filter-buttons" id="script-filters"></div>
+            <hr style="border-color: #00ff88; margin: 10px 0; opacity: 0.3;">
+            <div class="filter-buttons" id="region-filters"></div>
+        </div>
+        
+        <div id="controls">
+            <div class="control-item">
+                <button onclick="toggleAllConnections()">All Connections</button>
+                <button onclick="toggleCrossScriptBridges()">Cross-Script</button>
+                <button onclick="toggleSameLanguage()">Same Language</button>
+            </div>
+            <div class="control-item">
+                <button onclick="animateByScript()">Script Wave</button>
+                <button onclick="animateByRegion()">Region Wave</button>
+                <button onclick="toggleRotation()">Auto Rotate</button>
+            </div>
+            <div class="control-item">
+                <button onclick="showGlobalStats()">Global Analysis</button>
+                <button onclick="resetGlobalView()">Global View</button>
+            </div>
+            <div class="control-item">
+                <small>Mouse: Navigate | Wheel: Zoom | Click: Focus</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Scene setup with enhanced capabilities for large dataset
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 5000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x0a0a1a, 1);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        
+        document.getElementById('container').appendChild(renderer.domElement);
+        
+        // Enhanced lighting system for large scale visualization
+        const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
+        scene.add(ambientLight);
+        
+        const directionalLight = new THREE.DirectionalLight(0x00ff88, 0.5);
+        directionalLight.position.set(50, 50, 25);
+        directionalLight.castShadow = true;
+        directionalLight.shadow.mapSize.width = 4096;
+        directionalLight.shadow.mapSize.height = 4096;
+        directionalLight.shadow.camera.left = -200;
+        directionalLight.shadow.camera.right = 200;
+        directionalLight.shadow.camera.top = 200;
+        directionalLight.shadow.camera.bottom = -200;
+        scene.add(directionalLight);
+        
+        // Multiple colored lights for different script families
+        const pointLights = [
+            { color: 0x4488ff, pos: [-100, 30, 50] },   // Latin scripts
+            { color: 0xff4488, pos: [100, 30, 50] },    // Cyrillic scripts
+            { color: 0x88ff44, pos: [0, 30, -100] },    // Asian scripts
+            { color: 0xffaa44, pos: [0, 30, 100] },     // Semitic scripts
+            { color: 0xaa44ff, pos: [-50, 50, 0] },     // Mobile/Special
+            { color: 0x44ffaa, pos: [50, 50, 0] }       // Ergonomic
+        ];
+        
+        pointLights.forEach(light => {
+            const pointLight = new THREE.PointLight(light.color, 0.3, 200);
+            pointLight.position.set(...light.pos);
+            scene.add(pointLight);
+        });
+        
+        // Configuration for massive layout system
+        const LAYOUT_SPACING = 25;
+        const BLOCK_SPACING = 2;
+        const SCRIPT_SEPARATION = 150;
+        
+        let allLayoutBlocks = {};
+        let allConnections = [];
+        let crossScriptBridges = [];
+        let sameLanguageConnections = [];
+        let blockLabels = [];
+        let selectedBlock = null;
+        let activeFilters = new Set(['all']);
+        let showAllConnections = false;
+        let showCrossScript = true;
+        let showSameLanguage = true;
+        let autoRotate = true;
+        
+        // Comprehensive global keyboard layouts database
+        const globalLayouts = {
+            // Latin Script Family
+            latin: {
+                name: 'Latin Scripts',
+                color: 0x4488ff,
+                position: [0, 0, 0],
+                layouts: {
+                    qwerty: {
+                        name: 'QWERTY',
+                        description: 'English standard',
+                        region: 'Global',
+                        efficiency: 'Baseline',
+                        letters: ['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L',';','Z','X','C','V','B','N','M',',','.','/'],
+                        frequencies: [0.1,1.5,11.2,7.6,6.9,2.0,2.8,7.0,7.5,1.9,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,0.1,0.1,0.2,2.8,1.0,1.3,6.7,2.4,0.2,0.6,0.1]
+                    },
+                    azerty: {
+                        name: 'AZERTY',
+                        description: 'French standard',
+                        region: 'France/Belgium',
+                        efficiency: 'French optimized',
+                        letters: ['A','Z','E','R','T','Y','U','I','O','P','Q','S','D','F','G','H','J','K','L','M','W','X','C','V','B','N',',',';',':','!'],
+                        frequencies: [8.1,0.1,11.2,7.6,6.9,2.0,2.8,7.0,7.5,1.9,0.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,2.4,1.5,0.2,2.8,1.0,1.3,6.7,0.2,0.1,0.1,0.1]
+                    },
+                    qwertz: {
+                        name: 'QWERTZ',
+                        description: 'German standard',
+                        region: 'Germany/Austria',
+                        efficiency: 'German optimized',
+                        letters: ['Q','W','E','R','T','Z','U','I','O','P','A','S','D','F','G','H','J','K','L','Ö','Y','X','C','V','B','N','M',',','.','-'],
+                        frequencies: [0.1,1.5,11.2,7.6,6.9,0.1,2.8,7.0,7.5,1.9,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,0.3,2.0,0.2,2.8,1.0,1.3,6.7,2.4,0.2,0.6,0.1]
+                    },
+                    qzerty: {
+                        name: 'QZERTY',
+                        description: 'Italian typewriter',
+                        region: 'Italy (historical)',
+                        efficiency: 'Italian optimized',
+                        letters: ['Q','Z','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','M','W','X','C','V','B','N',',',';',':','.'],
+                        frequencies: [0.1,0.1,11.2,7.6,6.9,2.0,2.8,7.0,7.5,1.9,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,2.4,1.5,0.2,2.8,1.0,1.3,6.7,0.2,0.1,0.1,0.6]
+                    },
+                    querty: {
+                        name: 'QÜERTY',
+                        description: 'Azerbaijani layout',
+                        region: 'Azerbaijan',
+                        efficiency: 'Azerbaijani optimized',
+                        letters: ['Q','Ü','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L',';','Z','X','C','V','B','N','M',',','.','/'],
+                        frequencies: [0.1,2.5,11.2,7.6,6.9,2.0,2.8,7.0,7.5,1.9,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,0.1,0.1,0.2,2.8,1.0,1.3,6.7,2.4,0.2,0.6,0.1]
+                    },
+                    awerty: {
+                        name: 'ÄWERTY',
+                        description: 'Turkmen layout',
+                        region: 'Turkmenistan',
+                        efficiency: 'Turkmen optimized',
+                        letters: ['Ä','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L',';','Ý','Ü','Ç','V','B','N','M',',','.','/'],
+                        frequencies: [9.5,1.5,11.2,7.6,6.9,2.0,2.8,7.0,7.5,1.9,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,0.1,2.5,2.8,3.2,1.0,1.3,6.7,2.4,0.2,0.6,0.1]
+                    },
+                    azerty_lt: {
+                        name: 'ĄŽERTY',
+                        description: 'Lithuanian layout',
+                        region: 'Lithuania',
+                        efficiency: 'Lithuanian optimized',
+                        letters: ['Ą','Ž','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L',';','Ū','X','C','V','B','N','M',',','.','/'],
+                        frequencies: [9.0,1.8,11.2,7.6,6.9,2.0,2.8,7.0,7.5,1.9,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,0.1,3.2,0.2,2.8,1.0,1.3,6.7,2.4,0.2,0.6,0.1]
+                    }
+                }
+            },
+            
+            // Ergonomic Latin Variants
+            ergonomic: {
+                name: 'Ergonomic Layouts',
+                color: 0xffaa44,
+                position: [SCRIPT_SEPARATION, 0, 0],
+                layouts: {
+                    dvorak: {
+                        name: 'Dvorak',
+                        description: 'Vowel-left ergonomic',
+                        region: 'Global',
+                        efficiency: '+15% speed',
+                        letters: ['"',',','.','P','Y','F','G','C','R','L','A','O','E','U','I','D','H','T','N','S',';','Q','J','K','X','B','M','W','V','Z'],
+                        frequencies: [0.1,0.2,0.6,1.9,2.0,2.2,2.0,2.8,7.6,4.0,8.1,7.5,11.2,2.8,7.0,4.3,6.1,6.9,6.7,6.3,0.1,0.1,0.2,0.8,0.2,1.3,2.4,1.5,1.0,0.1]
+                    },
+                    colemak: {
+                        name: 'Colemak',
+                        description: 'QWERTY-based optimization',
+                        region: 'Global',
+                        efficiency: '+35% efficiency',
+                        letters: ['Q','W','F','P','G','J','L','U','Y',';','A','R','S','T','D','H','N','E','I','O','Z','X','C','V','B','K','M',',','.','/'],
+                        frequencies: [0.1,1.5,2.2,1.9,2.0,0.2,4.0,2.8,2.0,0.1,8.1,7.6,6.3,6.9,4.3,6.1,6.7,11.2,7.0,7.5,0.1,0.2,2.8,1.0,1.3,0.8,2.4,0.2,0.6,0.1]
+                    },
+                    workman: {
+                        name: 'Workman',
+                        description: 'Natural finger movement',
+                        region: 'Global',
+                        efficiency: '+25% less travel',
+                        letters: ['Q','D','R','W','B','J','F','U','P',';','A','S','H','T','G','Y','N','E','O','I','Z','X','M','C','V','K','L',',','.','/'],
+                        frequencies: [0.1,4.3,7.6,1.5,1.3,0.2,2.2,2.8,1.9,0.1,8.1,6.3,6.1,6.9,2.0,2.0,6.7,11.2,7.5,7.0,0.1,0.2,2.4,2.8,1.0,0.8,4.0,0.2,0.6,0.1]
+                    },
+                    norman: {
+                        name: 'Norman',
+                        description: 'QWERTY-similar ergonomic',
+                        region: 'Global',
+                        efficiency: '+20% efficiency',
+                        letters: ['Q','W','D','F','K','J','U','R','L',';','A','S','E','T','G','Y','N','I','O','H','Z','X','C','V','B','P','M',',','.','/'],
+                        frequencies: [0.1,1.5,4.3,2.2,0.8,0.2,2.8,7.6,4.0,0.1,8.1,6.3,11.2,6.9,2.0,2.0,6.7,7.0,7.5,6.1,0.1,0.2,2.8,1.0,1.3,1.9,2.4,0.2,0.6,0.1]
+                    },
+                    mtgap: {
+                        name: 'MTGAP',
+                        description: 'Minimal finger travel',
+                        region: 'Global',
+                        efficiency: 'Lowest travel distance',
+                        letters: ['Y','P','O','U','J','K','D','L','C','W','I','N','E','A',',','M','H','T','S','R','Q','Z','/','.',';','B','F','G','V','X'],
+                        frequencies: [2.0,1.9,7.5,2.8,0.2,0.8,4.3,4.0,2.8,1.5,7.0,6.7,11.2,8.1,0.2,2.4,6.1,6.9,6.3,7.6,0.1,0.1,0.1,0.6,0.1,1.3,2.2,2.0,1.0,0.2]
+                    },
+                    qwpr: {
+                        name: 'Qwpr',
+                        description: 'Minimal QWERTY changes',
+                        region: 'Global',
+                        efficiency: '11-key optimization',
+                        letters: ['Q','W','P','R','T','Y','U','I','O',';','A','S','D','F','G','H','J','K','L','E','Z','X','C','V','B','N','M',',','.','/'],
+                        frequencies: [0.1,1.5,1.9,7.6,6.9,2.0,2.8,7.0,7.5,0.1,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,11.2,0.1,0.2,2.8,1.0,1.3,6.7,2.4,0.2,0.6,0.1]
+                    },
+                    minimak: {
+                        name: 'Minimak',
+                        description: '4-12 key changes from QWERTY',
+                        region: 'Global',
+                        efficiency: 'Gentle transition',
+                        letters: ['Q','W','D','R','K','Y','U','I','O','P','A','S','T','F','G','H','J','E','L',';','Z','X','C','V','B','N','M',',','.','/'],
+                        frequencies: [0.1,1.5,4.3,7.6,0.8,2.0,2.8,7.0,7.5,1.9,8.1,6.3,6.9,2.2,2.0,6.1,0.2,11.2,4.0,0.1,0.1,0.2,2.8,1.0,1.3,6.7,2.4,0.2,0.6,0.1]
+                    },
+                    bepo: {
+                        name: 'BÉPO',
+                        description: 'French ergonomic + programming',
+                        region: 'France',
+                        efficiency: '+30% French efficiency',
+                        letters: ['B','É','P','O','È','!','V','D','L','J','A','U','I','E','T','S','R','N','M','C','À','Y','X','.','K','\'','Q','G','H','F'],
+                        frequencies: [1.3,1.2,1.9,7.5,0.3,0.1,1.0,4.3,4.0,0.2,8.1,2.8,7.0,11.2,6.9,6.3,7.6,6.7,2.4,2.8,0.1,2.0,0.2,0.6,0.8,0.1,0.1,2.0,6.1,2.2]
+                    },
+                    neo: {
+                        name: 'Neo',
+                        description: 'German 6-layer ergonomic',
+                        region: 'Germany',
+                        efficiency: '+40% German efficiency',
+                        letters: ['X','V','L','C','W','K','H','G','F','Q','U','I','A','E','O','S','N','R','T','D','Ü','Ö','Ä','P','Z','B','M',',','.','-'],
+                        frequencies: [0.2,1.0,4.0,2.8,1.5,0.8,6.1,2.0,2.2,0.1,2.8,7.0,8.1,11.2,7.5,6.3,6.7,7.6,6.9,4.3,0.5,0.3,0.6,1.9,0.1,1.3,2.4,0.2,0.6,0.1]
+                    },
+                    turkish_f: {
+                        name: 'Turkish F',
+                        description: 'Scientific Turkish layout',
+                        region: 'Turkey',
+                        efficiency: 'Turkish frequency optimized',
+                        letters: ['F','G','Ğ','I','O','D','R','N','H','P','U','İ','E','A','Ü','T','K','M','L','Y','J','Ö','V','C','Ç','Z','S','B','.', ','],
+                        frequencies: [2.2,2.0,1.2,7.3,2.0,4.5,8.7,6.7,6.1,1.9,4.6,8.3,8.9,11.9,4.5,9.7,13.5,5.7,5.9,3.3,0.3,1.5,2.2,1.5,0.9,1.5,3.0,2.8,0.6,0.2]
+                    }
+                }
+            },
+            
+            // Cyrillic Script Family
+            cyrillic: {
+                name: 'Cyrillic Scripts',
+                color: 0xff4488,
+                position: [-SCRIPT_SEPARATION, 0, 0],
+                layouts: {
+                    jcuken: {
+                        name: 'ЙЦУКЕН',
+                        description: 'Russian standard',
+                        region: 'Russia/CIS',
+                        efficiency: 'Russian optimized',
+                        letters: ['Й','Ц','У','К','Е','Н','Г','Ш','Щ','З','Ф','Ы','В','А','П','Р','О','Л','Д','Ж','Я','Ч','С','М','И','Т','Ь','Б','Ю','.'],
+                        frequencies: [1.2,0.5,2.6,3.5,8.5,6.7,1.7,0.7,0.4,1.6,0.3,1.9,4.5,8.0,2.8,4.7,11.0,4.4,3.0,0.9,2.0,1.4,5.5,3.2,7.4,6.3,1.7,1.6,0.6,0.2]
+                    },
+                    bulgarian_bds: {
+                        name: 'БДС',
+                        description: 'Bulgarian phonetic',
+                        region: 'Bulgaria',
+                        efficiency: 'Bulgarian optimized',
+                        letters: ['У','Е','И','Ш','Щ','К','С','Д','З','Ц','Ь','Я','А','О','Ж','Г','Т','Н','В','М','Ю','Й','Ъ','Э','Ф','Х','П','Р','Л','Ч'],
+                        frequencies: [2.4,8.5,7.4,0.7,0.4,3.5,5.5,3.0,1.6,0.5,1.7,2.0,8.0,11.0,0.9,1.7,6.3,6.7,4.5,3.2,0.6,1.2,1.5,0.8,0.3,0.9,2.8,4.7,4.4,1.4]
+                    },
+                    macedonian: {
+                        name: 'Македонски',
+                        description: 'Macedonian phonetic',
+                        region: 'North Macedonia',
+                        efficiency: 'Macedonian optimized',
+                        letters: ['Љ','Њ','Е','Р','Т','Ѕ','У','И','О','П','А','С','Д','Ф','Г','Х','Ј','К','Л','Ч','Ѓ','Џ','Ц','В','Б','Н','М','Ж','Ш','Ќ'],
+                        frequencies: [0.4,0.6,8.5,4.7,6.3,0.2,2.4,7.4,11.0,2.8,8.0,5.5,3.0,0.3,1.7,0.9,1.2,3.5,4.4,1.4,0.3,0.1,0.5,4.5,1.6,6.7,3.2,0.9,0.7,0.5]
+                    },
+                    serbian: {
+                        name: 'Српски',
+                        description: 'Serbian Cyrillic',
+                        region: 'Serbia',
+                        efficiency: 'Serbian optimized',
+                        letters: ['Љ','Њ','Е','Р','Т','З','У','И','О','П','А','С','Д','Ф','Г','Х','Ј','К','Л','Ч','Ћ','Џ','Ц','В','Б','Н','М','Ж','Ђ','Ш'],
+                        frequencies: [0.4,0.6,8.5,4.7,6.3,1.6,2.4,7.4,11.0,2.8,8.0,5.5,3.0,0.3,1.7,0.9,1.2,3.5,4.4,1.4,0.8,0.1,0.5,4.5,1.6,6.7,3.2,0.9,0.7,0.7]
+                    },
+                    ukrainian: {
+                        name: 'Українська',
+                        description: 'Ukrainian layout',
+                        region: 'Ukraine',
+                        efficiency: 'Ukrainian optimized',
+                        letters: ['Й','Ц','У','К','Е','Н','Г','Ш','Щ','З','Ф','І','В','А','П','Р','О','Л','Д','Ж','Є','Я','Ч','С','М','И','Т','Ь','Б','Ю'],
+                        frequencies: [1.2,0.5,4.0,3.5,8.0,6.7,1.7,0.7,0.4,1.6,0.3,5.5,4.5,8.5,2.8,4.7,9.6,4.4,3.0,0.9,0.8,2.0,1.4,5.5,3.2,6.8,6.3,1.7,1.6,0.6]
+                    }
+                }
+            },
+            
+            // Asian Scripts
+            asian: {
+                name: 'Asian Scripts',
+                color: 0x88ff44,
+                position: [0, 0, SCRIPT_SEPARATION],
+                layouts: {
+                    chinese_pinyin: {
+                        name: '拼音',
+                        description: 'Chinese Pinyin input',
+                        region: 'China',
+                        efficiency: 'Phonetic input',
+                        letters: ['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L',';','Z','X','C','V','B','N','M',',','.','/'],
+                        frequencies: [0.1,1.5,11.2,7.6,6.9,2.0,2.8,7.0,7.5,1.9,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,0.1,0.1,0.2,2.8,1.0,1.3,6.7,2.4,0.2,0.6,0.1]
+                    },
+                    chinese_cangjie: {
+                        name: '倉頡',
+                        description: 'Cangjie structural input',
+                        region: 'Hong Kong/Taiwan',
+                        efficiency: 'Shape-based input',
+                        letters: ['手','田','水','口','廿','卜','山','戈','人','心','日','尸','木','火','土','竹','十','大','中','一','重','難','金','女','月','弓','一','竹','弓','Z'],
+                        frequencies: [3.5,2.8,4.2,5.1,1.8,2.3,3.0,2.1,6.8,4.5,3.9,1.5,4.7,2.9,3.8,2.6,4.1,3.2,5.5,7.2,0.8,0.6,1.9,2.4,3.1,1.7,7.2,2.6,1.7,0.1]
+                    },
+                    korean_dubeol: {
+                        name: '두벌식',
+                        description: 'Korean 2-set',
+                        region: 'South Korea',
+                        efficiency: 'Standard Korean',
+                        letters: ['ㅂ','ㅈ','ㄷ','ㄱ','ㅅ','ㅛ','ㅕ','ㅑ','ㅐ','ㅔ','ㅁ','ㄴ','ㅇ','ㄹ','ㅎ','ㅗ','ㅓ','ㅏ','ㅣ',';','ㅋ','ㅌ','ㅊ','ㅍ','ㅠ','ㅜ','ㅡ',',','.','/'],
+                        frequencies: [2.8,1.5,4.2,3.8,5.2,1.2,2.1,1.8,3.5,2.9,3.1,6.7,12.8,5.9,1.7,8.4,7.2,11.6,8.3,0.1,0.9,1.3,0.7,0.6,1.4,3.6,4.8,0.2,0.6,0.1]
+                    },
+                    korean_sebeol: {
+                        name: '세벌식',
+                        description: 'Korean 3-set',
+                        region: 'South Korea',
+                        efficiency: 'Ergonomic Korean',
+                        letters: ['ㅎ','ㅆ','ㅂ','ㅛ','ㅠ','ㅑ','ㅖ','ㅢ','ㅜ','ㅠ','ㅁ','ㄴ','ㅇ','ㄹ','ㅎ','ㅗ','ㅓ','ㅏ','ㅣ','ㅡ','ㅋ','ㅌ','ㅊ','ㅍ','ㅈ','ㄷ','ㄱ','ㅅ','ㅂ','ㅁ'],
+                        frequencies: [1.7,0.8,2.8,1.2,1.4,1.8,0.5,0.3,3.6,1.4,3.1,6.7,12.8,5.9,1.7,8.4,7.2,11.6,8.3,4.8,0.9,1.3,0.7,0.6,1.5,4.2,3.8,5.2,2.8,3.1]
+                    },
+                    japanese_jis: {
+                        name: 'JIS',
+                        description: 'Japanese standard',
+                        region: 'Japan',
+                        efficiency: 'Kana + Latin',
+                        letters: ['た','て','い','す','か','ん','な','に','ら','せ','ち','と','し','は','き','く','ま','の','り','れ','つ','さ','そ','ひ','こ','み','も','ね','る','め'],
+                        frequencies: [4.8,3.2,7.9,2.1,5.7,6.8,4.5,6.3,4.1,1.9,3.7,5.4,6.9,1.8,3.9,4.6,2.7,8.1,4.2,1.6,3.4,2.8,1.5,1.7,3.6,2.3,1.4,2.9,3.1,2.5]
+                    }
+                }
+            },
+            
+            // Semitic Scripts
+            semitic: {
+                name: 'Semitic Scripts',
+                color: 0xaa44ff,
+                position: [0, 0, -SCRIPT_SEPARATION],
+                layouts: {
+                    arabic: {
+                        name: 'العربية',
+                        description: 'Arabic standard',
+                        region: 'Arab World',
+                        efficiency: 'Arabic optimized',
+                        letters: ['ض','ص','ث','ق','ف','غ','ع','ه','خ','ح','ش','س','ي','ب','ل','ا','ت','ن','م','ك','ئ','ء','ؤ','ر','لا','ى','ة','و','ز','ظ'],
+                        frequencies: [0.9,1.6,1.1,1.0,2.8,1.2,3.1,2.6,0.9,0.8,2.3,2.9,8.2,2.5,5.3,12.1,3.9,5.9,3.8,2.4,0.6,0.4,0.3,4.7,0.8,2.1,2.8,4.2,1.5,0.7]
+                    },
+                    hebrew: {
+                        name: 'עברית',
+                        description: 'Hebrew standard',
+                        region: 'Israel',
+                        efficiency: 'Hebrew optimized',
+                        letters: ['/','\'','ק','ר','א','ט','ו','ן','ם','פ','ש','ד','ג','כ','ע','י','ח','ל','ך','ף','ז','ס','ב','ה','נ','מ','צ','ת','ץ','.'],
+                        frequencies: [0.1,0.2,1.9,6.8,11.5,0.9,10.1,1.8,1.7,2.1,2.8,4.2,1.4,3.9,2.3,9.8,2.5,7.9,1.2,0.8,1.0,3.1,4.7,8.6,6.3,4.1,2.2,15.0,0.7,0.6]
+                    },
+                    armenian: {
+                        name: 'Հայերեն',
+                        description: 'Armenian phonetic',
+                        region: 'Armenia',
+                        efficiency: 'Armenian optimized',
+                        letters: ['Ք','Ո','Ե','Ռ','Տ','Ե','Ւ','Ի','Օ','Պ','Ա','Ս','Դ','Ֆ','Գ','Հ','Ջ','Կ','Լ',';','Զ','Խ','Ց','Վ','Բ','Ն','Մ',',','.','/'],
+                        frequencies: [0.8,6.2,8.9,4.1,5.3,8.9,1.2,7.8,1.9,2.1,11.2,4.7,3.8,0.3,1.9,4.6,0.7,2.8,4.9,0.1,1.1,0.9,0.6,2.9,1.7,7.1,2.4,0.2,0.6,0.1]
+                    },
+                    georgian: {
+                        name: 'ქართული',
+                        description: 'Georgian phonetic',
+                        region: 'Georgia',
+                        efficiency: 'Georgian optimized',
+                        letters: ['ღ','წ','ე','რ','ტ','ყ','უ','ი','ო','პ','ა','ს','დ','ფ','გ','ჰ','ჯ','კ','ლ',';','ზ','ხ','ც','ვ','ბ','ნ','მ',',','.','/'],
+                        frequencies: [0.4,0.7,8.1,4.9,3.2,0.5,4.7,7.8,6.4,1.2,11.9,3.1,3.6,0.8,2.3,0.3,0.2,2.7,3.9,0.1,1.8,0.9,1.4,5.2,1.9,7.6,2.8,0.2,0.6,0.1]
+                    },
+                    greek: {
+                        name: 'Ελληνικά',
+                        description: 'Greek standard',
+                        region: 'Greece',
+                        efficiency: 'Greek optimized',
+                        letters: [';','ς','ε','ρ','τ','υ','θ','ι','ο','π','α','σ','δ','φ','γ','η','ξ','κ','λ',';','ζ','χ','ψ','ω','β','ν','μ',',','.','/'],
+                        frequencies: [0.1,1.2,8.8,5.9,3.7,4.8,1.5,8.3,7.8,2.4,12.7,7.1,4.4,0.9,1.3,5.1,0.3,2.8,3.4,0.1,0.4,2.2,0.7,1.5,0.9,5.4,3.1,0.2,0.6,0.1]
+                    },
+                    cherokee: {
+                        name: 'ᏣᎳᎩ ᎦᏬᏂᎯᏍᏗ',
+                        description: 'Cherokee syllabary',
+                        region: 'North America',
+                        efficiency: 'Cherokee optimized',
+                        letters: ['Ꭰ','Ꭱ','Ꭲ','Ꭳ','Ꭴ','Ꭵ','Ꭶ','Ꭷ','Ꭸ','Ꭹ','Ꭺ','Ꭻ','Ꭼ','Ꭽ','Ꭾ','Ꭿ','Ꮀ','Ꮁ','Ꮂ','Ꮃ','Ꮄ','Ꮅ','Ꮆ','Ꮇ','Ꮈ','Ꮉ','Ꮊ','Ꮋ','Ꮌ','Ꮍ'],
+                        frequencies: [8.2,2.1,6.8,1.4,3.9,2.7,4.1,1.8,3.2,2.9,1.6,2.4,1.9,1.3,2.8,3.6,1.7,2.2,1.5,4.7,2.6,3.8,2.1,1.9,1.4,2.3,1.6,1.8,2.7,1.2]
+                    }
+                }
+            },
+            
+            // Specialized/Mobile Layouts
+            specialized: {
+                name: 'Specialized Layouts',
+                color: 0x44ffaa,
+                position: [SCRIPT_SEPARATION, 0, SCRIPT_SEPARATION],
+                layouts: {
+                    alphabetical: {
+                        name: 'ABC',
+                        description: 'Alphabetical order',
+                        region: 'Educational',
+                        efficiency: 'Learning aid',
+                        letters: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',',','.',';','/'],
+                        frequencies: [8.1,1.3,2.8,4.3,11.2,2.2,2.0,6.1,7.0,0.2,0.8,4.0,2.4,6.7,7.5,1.9,0.1,7.6,6.3,6.9,2.8,1.0,1.5,0.2,2.0,0.1,0.2,0.6,0.1,0.1]
+                    },
+                    stenotype: {
+                        name: 'Stenotype',
+                        description: 'Court reporting',
+                        region: 'Professional',
+                        efficiency: 'Chorded input',
+                        letters: ['S','T','K','P','W','H','R','A','O','*','E','U','F','R','P','B','L','G','T','S','D','Z','#','S','T','K','P','W','H','R'],
+                        frequencies: [6.3,6.9,0.8,1.9,1.5,6.1,7.6,8.1,7.5,0.5,11.2,2.8,2.2,7.6,1.9,1.3,4.0,2.0,6.9,6.3,4.3,0.1,0.1,6.3,6.9,0.8,1.9,1.5,6.1,7.6]
+                    },
+                    velotype: {
+                        name: 'Velotype',
+                        description: 'Syllabic chorded',
+                        region: 'Professional',
+                        efficiency: 'Fast transcription',
+                        letters: ['RE','IN','TE','AN','ER','OU','IT','ST','AR','HE','NG','AT','EN','ND','ON','ED','TO','HA','TH','OR','TI','HI','AS','LE','VE','CO','MA','DE','LI','SE'],
+                        frequencies: [4.2,3.8,3.9,2.9,4.1,2.7,3.1,2.8,2.4,5.9,1.8,2.6,3.7,2.2,3.4,2.1,4.8,1.9,5.2,2.3,1.7,1.6,2.5,2.8,1.4,1.8,1.9,1.6,2.4,2.7]
+                    },
+                    fitaly: {
+                        name: 'FITALY',
+                        description: 'Stylus optimized',
+                        region: 'Mobile',
+                        efficiency: 'Minimal movement',
+                        letters: ['Q','W','E','R','Y','T','D','F','G','A','U','I','H','J','K','S','C','V','P','L','M','X','O','B','Z','N',',','.','?','!'],
+                        frequencies: [0.1,1.5,11.2,7.6,2.0,6.9,4.3,2.2,2.0,8.1,2.8,7.0,6.1,0.2,0.8,6.3,2.8,1.0,1.9,4.0,2.4,0.2,7.5,1.3,0.1,6.7,0.2,0.6,0.1,0.1]
+                    },
+                    messagease: {
+                        name: 'MessagEase',
+                        description: '9-key optimized',
+                        region: 'Mobile',
+                        efficiency: 'Gesture based',
+                        letters: ['A','N','I','T','E','O','H','R','S','D','Y','F','U','G','C','L','W','M','V','K','P','Q','B','J','X','Z',',','.','?','!'],
+                        frequencies: [8.1,6.7,7.0,6.9,11.2,7.5,6.1,7.6,6.3,4.3,2.0,2.2,2.8,2.0,2.8,4.0,1.5,2.4,1.0,0.8,1.9,0.1,1.3,0.2,0.2,0.1,0.2,0.6,0.1,0.1]
+                    },
+                    honeycomb: {
+                        name: 'Honeycomb',
+                        description: 'Hexagonal mobile',
+                        region: 'Mobile',
+                        efficiency: 'Touch optimized',
+                        letters: ['Q','W','E','R','T','Z','U','I','O','P','A','S','D','F','G','H','J','K','L','Y','X','C','V','B','N','M',',','.','?','!'],
+                        frequencies: [0.1,1.5,11.2,7.6,6.9,0.1,2.8,7.0,7.5,1.9,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,2.0,0.2,2.8,1.0,1.3,6.7,2.4,0.2,0.6,0.1,0.1]
+                    }
+                }
+            },
+            
+            // Physical Standards
+            physical: {
+                name: 'Physical Standards',
+                color: 0xff8844,
+                position: [-SCRIPT_SEPARATION, 0, -SCRIPT_SEPARATION],
+                layouts: {
+                    iso: {
+                        name: 'ISO',
+                        description: 'International standard',
+                        region: 'Europe',
+                        efficiency: 'Standard compliance',
+                        letters: ['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L',';','Z','X','C','V','B','N','M',',','.','/'],
+                        frequencies: [0.1,1.5,11.2,7.6,6.9,2.0,2.8,7.0,7.5,1.9,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,0.1,0.1,0.2,2.8,1.0,1.3,6.7,2.4,0.2,0.6,0.1]
+                    },
+                    ansi: {
+                        name: 'ANSI',
+                        description: 'American standard',
+                        region: 'North America',
+                        efficiency: 'US standard',
+                        letters: ['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L',';','Z','X','C','V','B','N','M',',','.','/'],
+                        frequencies: [0.1,1.5,11.2,7.6,6.9,2.0,2.8,7.0,7.5,1.9,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,0.1,0.1,0.2,2.8,1.0,1.3,6.7,2.4,0.2,0.6,0.1]
+                    },
+                    jis_standard: {
+                        name: 'JIS',
+                        description: 'Japanese industrial standard',
+                        region: 'Japan',
+                        efficiency: 'Japanese standard',
+                        letters: ['Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L',';','Z','X','C','V','B','N','M',',','.','/'],
+                        frequencies: [0.1,1.5,11.2,7.6,6.9,2.0,2.8,7.0,7.5,1.9,8.1,6.3,4.3,2.2,2.0,6.1,0.2,0.8,4.0,0.1,0.1,0.2,2.8,1.0,1.3,6.7,2.4,0.2,0.6,0.1]
+                    }
+                }
+            }
+        };
+        
+        // Connection materials for different relationship types
+        const connectionMaterials = {
+            intraLayout: new THREE.LineBasicMaterial({ color: 0x00ff88, transparent: true, opacity: 0.2 }),
+            crossScript: new THREE.LineBasicMaterial({ color: 0x4488ff, transparent: true, opacity: 0.5 }),
+            sameLanguage: new THREE.LineBasicMaterial({ color: 0xff4488, transparent: true, opacity: 0.6 }),
+            ergonomic: new THREE.LineBasicMaterial({ color: 0xffaa44, transparent: true, opacity: 0.4 }),
+            mobile: new THREE.LineBasicMaterial({ color: 0xaa44ff, transparent: true, opacity: 0.4 }),
+            selected: new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 1.0, linewidth: 3 })
+        };
+        
+        // Block materials with enhanced visual effects
+        const createBlockMaterial = (baseColor, frequency, isSelected = false) => {
+            if (isSelected) {
+                return new THREE.MeshPhongMaterial({
+                    color: 0xffffff,
+                    transparent: true,
+                    opacity: 1.0,
+                    emissive: 0xffffff,
+                    emissiveIntensity: 0.3
+                });
+            }
+            
+            const intensity = Math.min(frequency / 10, 1);
+            const opacity = 0.4 + (intensity * 0.5);
+            
+            return new THREE.MeshPhongMaterial({
+                color: baseColor,
+                transparent: true,
+                opacity: opacity,
+                emissive: baseColor,
+                emissiveIntensity: intensity * 0.2,
+                shininess: 50 + (intensity * 50)
+            });
+        };
+        
+        // Create all global layouts
+        function createGlobalLayouts() {
+            clearScene();
+            
+            Object.keys(globalLayouts).forEach(scriptFamily => {
+                createScriptFamily(scriptFamily);
+            });
+            
+            createAllGlobalConnections();
+            updateLayoutCategories();
+            updateStats();
+        }
+        
+        function createScriptFamily(scriptFamilyKey) {
+            const scriptFamily = globalLayouts[scriptFamilyKey];
+            const [baseX, baseY, baseZ] = scriptFamily.position;
+            
+            Object.keys(scriptFamily.layouts).forEach((layoutKey, index) => {
+                createGlobalLayout(scriptFamilyKey, layoutKey, index, baseX, baseY, baseZ);
+            });
+        }
+        
+        function createGlobalLayout(scriptFamilyKey, layoutKey, index, baseX, baseY, baseZ) {
+            const layout = globalLayouts[scriptFamilyKey].layouts[layoutKey];
+            const scriptFamily = globalLayouts[scriptFamilyKey];
+            
+            if (!allLayoutBlocks[scriptFamilyKey]) {
+                allLayoutBlocks[scriptFamilyKey] = {};
+            }
+            allLayoutBlocks[scriptFamilyKey][layoutKey] = [];
+            
+            const blockGeometry = new THREE.BoxGeometry(1, 1, 1);
+            const layoutOffsetZ = index * LAYOUT_SPACING;
+            
+            // Create 3x10 grid for each layout
+            for (let row = 0; row < 3; row++) {
+                allLayoutBlocks[scriptFamilyKey][layoutKey][row] = [];
+                for (let col = 0; col < 10; col++) {
+                    const letterIndex = row * 10 + col;
+                    const letter = layout.letters[letterIndex] || '';
+                    const frequency = layout.frequencies[letterIndex] || 0;
+                    
+                    const material = createBlockMaterial(scriptFamily.color, frequency);
+                    const block = new THREE.Mesh(blockGeometry, material);
+                    
+                    // Position in 3D space
+                    const x = baseX + (col - 4.5) * BLOCK_SPACING;
+                    const y = baseY + (1.5 - row) * BLOCK_SPACING;
+                    const z = baseZ + layoutOffsetZ;
+                    
+                    block.position.set(x, y, z);
+                    block.castShadow = true;
+                    block.receiveShadow = true;
+                    
+                    // Store comprehensive block data
+                    block.userData = {
+                        row, col, letterIndex,
+                        letter, frequency,
+                        scriptFamily: scriptFamilyKey,
+                        layout: layoutKey,
+                        layoutName: layout.name,
+                        region: layout.region,
+                        efficiency: layout.efficiency,
+                        scriptColor: scriptFamily.color,
+                        connections: [],
+                        isVisible: true
+                    };
+                    
+                    allLayoutBlocks[scriptFamilyKey][layoutKey][row][col] = block;
+                    scene.add(block);
+                    
+                    // Create text labels
+                    createGlobalTextLabel(block, letter, scriptFamily.color);
+                }
+            }
+        }
+        
+        function createGlobalTextLabel(block, text, color) {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = 64;
+            canvas.height = 64;
+            
+            context.fillStyle = `#${color.toString(16).padStart(6, '0')}`;
+            context.font = 'Bold 20px Arial, "Noto Sans", "Noto Sans CJK", "Noto Sans Arabic"';
+            context.textAlign = 'center';
+            context.textBaseline = 'middle';
+            context.fillText(text, 32, 32);
+            
+            const texture = new THREE.CanvasTexture(canvas);
+            const material = new THREE.SpriteMaterial({ map: texture });
+            const sprite = new THREE.Sprite(material);
+            
+            sprite.position.copy(block.position);
+            sprite.position.y += 0.6;
+            sprite.scale.set(0.8, 0.8, 0.8);
+            
+            scene.add(sprite);
+            blockLabels.push(sprite);
+        }
+        
+        function createAllGlobalConnections() {
+            createIntraLayoutConnections();
+            createCrossScriptBridges();
+            createSameLanguageConnections();
+            createErgonomicConnections();
+        }
+        
+        function createIntraLayoutConnections() {
+            Object.keys(allLayoutBlocks).forEach(scriptFamily => {
+                Object.keys(allLayoutBlocks[scriptFamily]).forEach(layoutKey => {
+                    const blocks = allLayoutBlocks[scriptFamily][layoutKey];
+                    
+                    for (let row = 0; row < 3; row++) {
+                        for (let col = 0; col < 10; col++) {
+                            const currentBlock = blocks[row][col];
+                            
+                            // Connect to adjacent blocks
+                            const directions = [[-1,0], [1,0], [0,-1], [0,1]];
+                            directions.forEach(([dr, dc]) => {
+                                const newRow = row + dr;
+                                const newCol = col + dc;
+                                
+                                if (newRow >= 0 && newRow < 3 && newCol >= 0 && newCol < 10) {
+                                    const targetBlock = blocks[newRow][newCol];
+                                    createConnection(currentBlock, targetBlock, 'intraLayout');
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+        }
+        
+        function createCrossScriptBridges() {
+            const scriptFamilies = Object.keys(allLayoutBlocks);
+            
+            // Connect same letters across different scripts (e.g., Latin A with Cyrillic А)
+            for (let i = 0; i < scriptFamilies.length - 1; i++) {
+                for (let j = i + 1; j < scriptFamilies.length; j++) {
+                    connectScriptFamilies(scriptFamilies[i], scriptFamilies[j]);
+                }
+            }
+        }
+        
+        function connectScriptFamilies(family1, family2) {
+            const layouts1 = Object.keys(allLayoutBlocks[family1]);
+            const layouts2 = Object.keys(allLayoutBlocks[family2]);
+            
+            layouts1.forEach(layout1 => {
+                layouts2.forEach(layout2 => {
+                    const blocks1 = allLayoutBlocks[family1][layout1].flat();
+                    const blocks2 = allLayoutBlocks[family2][layout2].flat();
+                    
+                    // Connect blocks with similar phonetic values or positions
+                    blocks1.forEach(block1 => {
+                        if (block1.userData.frequency > 5) { // Only high-frequency letters
+                            blocks2.forEach(block2 => {
+                                if (areSimilarLetters(block1.userData.letter, block2.userData.letter)) {
+                                    createConnection(block1, block2, 'crossScript');
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+        }
+        
+        function createSameLanguageConnections() {
+            // Connect layouts from the same language family
+            const languagePairs = [
+                ['latin', 'ergonomic'], // Latin variants with ergonomic improvements
+                ['cyrillic', 'cyrillic'], // Between Cyrillic layouts
+                ['asian', 'asian'] // Between Asian layouts
+            ];
+            
+            languagePairs.forEach(([family1, family2]) => {
+                if (allLayoutBlocks[family1] && allLayoutBlocks[family2]) {
+                    connectSameLanguageFamily(family1, family2);
+                }
+            });
+        }
+        
+        function connectSameLanguageFamily(family1, family2) {
+            const layouts1 = Object.keys(allLayoutBlocks[family1]);
+            const layouts2 = Object.keys(allLayoutBlocks[family2]);
+            
+            layouts1.forEach(layout1 => {
+                layouts2.forEach(layout2 => {
+                    if (layout1 !== layout2) {
+                        const blocks1 = allLayoutBlocks[family1][layout1].flat();
+                        const blocks2 = allLayoutBlocks[family2][layout2].flat();
+                        
+                        // Connect identical letters
+                        blocks1.forEach(block1 => {
+                            blocks2.forEach(block2 => {
+                                if (block1.userData.letter === block2.userData.letter && 
+                                    block1.userData.frequency > 3) {
+                                    createConnection(block1, block2, 'sameLanguage');
+                                }
+                            });
+                        });
+                    }
+                });
+            });
+        }
+        
+        function createErgonomicConnections() {
+            // Connect ergonomic variants to their base layouts
+            const ergonomicMappings = [
+                ['latin', 'qwerty', 'ergonomic', 'dvorak'],
+                ['latin', 'qwerty', 'ergonomic', 'colemak'],
+                ['latin', 'qwerty', 'ergonomic', 'workman']
+            ];
+            
+            ergonomicMappings.forEach(([baseFamily, baseLayout, ergoFamily, ergoLayout]) => {
+                if (allLayoutBlocks[baseFamily]?.[baseLayout] && allLayoutBlocks[ergoFamily]?.[ergoLayout]) {
+                    const baseBlocks = allLayoutBlocks[baseFamily][baseLayout].flat();
+                    const ergoBlocks = allLayoutBlocks[ergoFamily][ergoLayout].flat();
+                    
+                    baseBlocks.forEach(baseBlock => {
+                        ergoBlocks.forEach(ergoBlock => {
+                            if (baseBlock.userData.letter === ergoBlock.userData.letter) {
+                                createConnection(baseBlock, ergoBlock, 'ergonomic');
+                            }
+                        });
+                    });
+                }
+            });
+        }
+        
+        function createConnection(block1, block2, type) {
+            const geometry = new THREE.BufferGeometry().setFromPoints([
+                block1.position,
+                block2.position
+            ]);
+            
+            const line = new THREE.Line(geometry, connectionMaterials[type]);
+            line.visible = getConnectionVisibility(type);
+            line.userData = {
+                type: type,
+                source: block1,
+                target: block2,
+                letter1: block1.userData.letter,
+                letter2: block2.userData.letter
+            };
+            
+            allConnections.push(line);
+            block1.userData.connections.push(line);
+            block2.userData.connections.push(line);
+            scene.add(line);
+        }
+        
+        function getConnectionVisibility(type) {
+            switch(type) {
+                case 'intraLayout': return showAllConnections;
+                case 'crossScript': return showCrossScript;
+                case 'sameLanguage': return showSameLanguage;
+                case 'ergonomic': return true;
+                case 'mobile': return true;
+                default: return false;
+            }
+        }
+        
+        function areSimilarLetters(letter1, letter2) {
+            // Phonetic similarity mapping
+            const similarityMap = {
+                'A': ['А', 'Α', 'ا', 'א', 'Ա', 'ა'],
+                'E': ['Е', 'Ε', 'ه', 'ה', 'Ե', 'ე'],
+                'O': ['О', 'Ο', 'و', 'ו', 'Օ', 'ო'],
+                'P': ['П', 'Π', 'ب', 'פ', 'Պ', 'პ'],
+                'T': ['Т', 'Τ', 'ت', 'ת', 'Տ', 'ტ']
+            };
+            
+            for (const [base, variants] of Object.entries(similarityMap)) {
+                if ((letter1 === base && variants.includes(letter2)) ||
+                    (letter2 === base && variants.includes(letter1)) ||
+                    (variants.includes(letter1) && variants.includes(letter2))) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function clearScene() {
+            // Remove all blocks
+            Object.values(allLayoutBlocks).forEach(scriptFamily => {
+                Object.values(scriptFamily).forEach(layout => {
+                    layout.flat().forEach(block => {
+                        if (block) scene.remove(block);
+                    });
+                });
+            });
+            
+            // Remove labels and connections
+            blockLabels.forEach(label => scene.remove(label));
+            allConnections.forEach(conn => scene.remove(conn));
+            
+            // Clear arrays
+            blockLabels.length = 0;
+            allConnections.length = 0;
+            allLayoutBlocks = {};
+        }
+        
+        function updateLayoutCategories() {
+            const container = document.getElementById('layout-categories');
+            container.innerHTML = '';
+            
+            Object.keys(globalLayouts).forEach(scriptFamilyKey => {
+                const scriptFamily = globalLayouts[scriptFamilyKey];
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'layout-category';
+                
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'category-title';
+                titleDiv.textContent = scriptFamily.name;
+                categoryDiv.appendChild(titleDiv);
+                
+                Object.keys(scriptFamily.layouts).forEach(layoutKey => {
+                    const layout = scriptFamily.layouts[layoutKey];
+                    const item = document.createElement('div');
+                    item.className = 'layout-item';
+                    item.onclick = () => focusOnLayout(scriptFamilyKey, layoutKey);
+                    
+                    item.innerHTML = `
+                        <div class="layout-indicator" style="background: #${scriptFamily.color.toString(16).padStart(6, '0')};"></div>
+                        <div class="layout-name">${layout.name}</div>
+                        <div class="layout-script">${layout.region}</div>
+                    `;
+                    
+                    categoryDiv.appendChild(item);
+                });
+                
+                container.appendChild(categoryDiv);
+            });
+        }
+        
+        function updateStats() {
+            const totalLayouts = Object.values(globalLayouts).reduce((sum, family) => 
+                sum + Object.keys(family.layouts).length, 0);
+            const visibleConnections = allConnections.filter(conn => conn.visible).length;
+            const scriptFamilies = Object.keys(globalLayouts).length;
+            
+            document.getElementById('active-count').textContent = totalLayouts;
+            document.getElementById('connection-count').textContent = visibleConnections;
+            document.getElementById('script-count').textContent = scriptFamilies;
+            document.getElementById('layout-count').innerHTML = `<strong>${totalLayouts} Layouts</strong> from ${scriptFamilies} Script Families`;
+        }
+        
+        function createScriptFilters() {
+            const scriptContainer = document.getElementById('script-filters');
+            const regionContainer = document.getElementById('region-filters');
+            
+            // Script family filters
+            Object.keys(globalLayouts).forEach(scriptFamily => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.textContent = globalLayouts[scriptFamily].name;
+                btn.onclick = () => toggleScriptFilter(scriptFamily);
+                scriptContainer.appendChild(btn);
+            });
+            
+            // Region filters
+            const regions = [...new Set(Object.values(globalLayouts).flatMap(family => 
+                Object.values(family.layouts).map(layout => layout.region)))];
+            
+            regions.forEach(region => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.textContent = region;
+                btn.onclick = () => toggleRegionFilter(region);
+                regionContainer.appendChild(btn);
+            });
+        }
+        
+        function toggleScriptFilter(scriptFamily) {
+            const btn = event.target;
+            btn.classList.toggle('active');
+            
+            // Toggle visibility of script family
+            if (allLayoutBlocks[scriptFamily]) {
+                Object.values(allLayoutBlocks[scriptFamily]).forEach(layout => {
+                    layout.flat().forEach(block => {
+                        if (block) {
+                            block.visible = btn.classList.contains('active') || 
+                                           document.querySelectorAll('#script-filters .filter-btn.active').length === 0;
+                        }
+                    });
+                });
+            }
+            
+            updateConnectionVisibility();
+            updateStats();
+        }
+        
+        function toggleRegionFilter(region) {
+            const btn = event.target;
+            btn.classList.toggle('active');
+            
+            // Toggle visibility based on region
+            Object.values(allLayoutBlocks).forEach(scriptFamily => {
+                Object.values(scriptFamily).forEach(layout => {
+                    layout.flat().forEach(block => {
+                        if (block && block.userData.region === region) {
+                            block.visible = btn.classList.contains('active') || 
+                                           document.querySelectorAll('#region-filters .filter-btn.active').length === 0;
+                        }
+                    });
+                });
+            });
+            
+            updateConnectionVisibility();
+            updateStats();
+        }
+        
+        function updateConnectionVisibility() {
+            allConnections.forEach(conn => {
+                const sourceVisible = conn.userData.source.visible;
+                const targetVisible = conn.userData.target.visible;
+                conn.visible = sourceVisible && targetVisible && getConnectionVisibility(conn.userData.type);
+            });
+        }
+        
+        // Mouse interaction for massive dataset
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2();
+        
+        function onMouseClick(event) {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+            
+            raycaster.setFromCamera(mouse, camera);
+            
+            const allBlocks = [];
+            Object.values(allLayoutBlocks).forEach(scriptFamily => {
+                Object.values(scriptFamily).forEach(layout => {
+                    allBlocks.push(...layout.flat().filter(b => b && b.visible));
+                });
+            });
+            
+            const intersects = raycaster.intersectObjects(allBlocks);
+            
+            if (intersects.length > 0) {
+                selectGlobalBlock(intersects[0].object);
+            } else {
+                deselectGlobalBlock();
+            }
+        }
+        
+        function selectGlobalBlock(block) {
+            // Reset previous selection
+            if (selectedBlock) {
+                const freq = selectedBlock.userData.frequency;
+                const color = selectedBlock.userData.scriptColor;
+                selectedBlock.material = createBlockMaterial(color, freq);
+                
+                selectedBlock.userData.connections.forEach(conn => {
+                    conn.material = connectionMaterials[conn.userData.type];
+                    conn.visible = getConnectionVisibility(conn.userData.type);
+                });
+            }
+            
+            // Highlight new selection
+            selectedBlock = block;
+            selectedBlock.material = createBlockMaterial(0xffffff, block.userData.frequency, true);
+            
+            // Show all connections for selected block
+            selectedBlock.userData.connections.forEach(conn => {
+                conn.material = connectionMaterials.selected;
+                conn.visible = true;
+            });
+            
+            // Update info panel
+            const info = block.userData;
+            document.getElementById('selected-info').innerHTML = `
+                <strong>${info.letter}</strong> in ${info.layoutName} (${info.region})<br>
+                Frequency: ${info.frequency.toFixed(1)}% | Script: ${globalLayouts[info.scriptFamily].name}
+            `;
+        }
+        
+        function deselectGlobalBlock() {
+            if (selectedBlock) {
+                const freq = selectedBlock.userData.frequency;
+                const color = selectedBlock.userData.scriptColor;
+                selectedBlock.material = createBlockMaterial(color, freq);
+                
+                selectedBlock.userData.connections.forEach(conn => {
+                    conn.material = connectionMaterials[conn.userData.type];
+                    conn.visible = getConnectionVisibility(conn.userData.type);
+                });
+                
+                selectedBlock = null;
+                document.getElementById('selected-info').textContent = 'Explore layouts by clicking or using filters';
+            }
+        }
+        
+        // Control functions
+        function toggleAllConnections() {
+            showAllConnections = !showAllConnections;
+            updateConnectionVisibility();
+            updateStats();
+        }
+        
+        function toggleCrossScriptBridges() {
+            showCrossScript = !showCrossScript;
+            updateConnectionVisibility();
+            updateStats();
+        }
+        
+        function toggleSameLanguage() {
+            showSameLanguage = !showSameLanguage;
+            updateConnectionVisibility();
+            updateStats();
+        }
+        
+        function animateByScript() {
+            Object.keys(allLayoutBlocks).forEach((scriptFamily, familyIndex) => {
+                Object.values(allLayoutBlocks[scriptFamily]).forEach((layout, layoutIndex) => {
+                    layout.flat().forEach((block, blockIndex) => {
+                        if (block) {
+                            const delay = (familyIndex * 1000) + (layoutIndex * 200) + (blockIndex * 20);
+                            setTimeout(() => {
+                                const originalPos = block.position.clone();
+                                block.position.y += 5;
+                                setTimeout(() => {
+                                    block.position.copy(originalPos);
+                                }, 800);
+                            }, delay);
+                        }
+                    });
+                });
+            });
+        }
+        
+        function animateByRegion() {
+            const regions = [...new Set(Object.values(allLayoutBlocks).flatMap(scriptFamily =>
+                Object.values(scriptFamily).flatMap(layout => 
+                    layout.flat().filter(b => b).map(b => b.userData.region))))];
+            
+            regions.forEach((region, regionIndex) => {
+                const regionBlocks = [];
+                Object.values(allLayoutBlocks).forEach(scriptFamily => {
+                    Object.values(scriptFamily).forEach(layout => {
+                        layout.flat().forEach(block => {
+                            if (block && block.userData.region === region) {
+                                regionBlocks.push(block);
+                            }
+                        });
+                    });
+                });
+                
+                regionBlocks.forEach((block, blockIndex) => {
+                    const delay = (regionIndex * 600) + (blockIndex * 30);
+                    setTimeout(() => {
+                        const originalPos = block.position.clone();
+                        block.position.y += 3;
+                        setTimeout(() => {
+                            block.position.copy(originalPos);
+                        }, 500);
+                    }, delay);
+                });
+            });
+        }
+        
+        function showGlobalStats() {
+            let stats = 'Global Keyboard Layout Statistics:\n\n';
+            
+            Object.keys(globalLayouts).forEach(scriptFamily => {
+                const family = globalLayouts[scriptFamily];
+                const layoutCount = Object.keys(family.layouts).length;
+                stats += `${family.name}: ${layoutCount} layouts\n`;
+                
+                Object.keys(family.layouts).forEach(layoutKey => {
+                    const layout = family.layouts[layoutKey];
+                    const avgFreq = layout.frequencies.reduce((a, b) => a + b, 0) / layout.frequencies.length;
+                    stats += `  • ${layout.name} (${layout.region}): ${avgFreq.toFixed(1)}% avg frequency\n`;
+                });
+                stats += '\n';
+            });
+            
+            alert(stats);
+        }
+        
+        function focusOnLayout(scriptFamily, layoutKey) {
+            const family = globalLayouts[scriptFamily];
+            const [baseX, baseY, baseZ] = family.position;
+            const layouts = Object.keys(family.layouts);
+            const layoutIndex = layouts.indexOf(layoutKey);
+            const z = baseZ + (layoutIndex * LAYOUT_SPACING);
+            
+            // Animate camera to layout
+            const targetPos = new THREE.Vector3(baseX, baseY + 10, z + 20);
+            animateCamera(targetPos, new THREE.Vector3(baseX, baseY, z));
+        }
+        
+        function animateCamera(targetPos, lookAtPos) {
+            const startPos = camera.position.clone();
+            const startLookAt = new THREE.Vector3(0, 0, 0);
+            const duration = 2000;
+            const startTime = Date.now();
+            
+            function updateCamera() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                
+                camera.position.lerpVectors(startPos, targetPos, eased);
+                const currentLookAt = new THREE.Vector3().lerpVectors(startLookAt, lookAtPos, eased);
+                camera.lookAt(currentLookAt);
+                
+                if (progress < 1) {
+                    requestAnimationFrame(updateCamera);
+                }
+            }
+            
+            updateCamera();
+        }
+        
+        function resetGlobalView() {
+            camera.position.set(100, 80, 100);
+            camera.lookAt(0, 0, 0);
+            deselectGlobalBlock();
+        }
+        
+        function toggleRotation() {
+            autoRotate = !autoRotate;
+        }
+        
+        // Enhanced orbit controls
+        let mouseDown = false;
+        let mouseX = 0;
+        let mouseY = 0;
+        let cameraAngle = { x: 0.2, y: 0.2 };
+        
+        function onMouseDown(event) {
+            mouseDown = true;
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+        }
+        
+        function onMouseUp() {
+            mouseDown = false;
+        }
+        
+        function onMouseMove(event) {
+            if (!mouseDown) return;
+            
+            const deltaX = event.clientX - mouseX;
+            const deltaY = event.clientY - mouseY;
+            
+            cameraAngle.y += deltaX * 0.003;
+            cameraAngle.x += deltaY * 0.003;
+            
+            cameraAngle.x = Math.max(-Math.PI/2, Math.min(Math.PI/2, cameraAngle.x));
+            
+            updateCameraPosition();
+            
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+        }
+        
+        function updateCameraPosition() {
+            const radius = camera.position.length();
+            camera.position.x = Math.cos(cameraAngle.y) * Math.cos(cameraAngle.x) * radius;
+            camera.position.y = Math.sin(cameraAngle.x) * radius;
+            camera.position.z = Math.sin(cameraAngle.y) * Math.cos(cameraAngle.x) * radius;
+            camera.lookAt(0, 0, 0);
+        }
+        
+        function onWheel(event) {
+            const scale = event.deltaY > 0 ? 1.1 : 0.9;
+            camera.position.multiplyScalar(scale);
+        }
+        
+        // Event listeners
+        renderer.domElement.addEventListener('click', onMouseClick);
+        renderer.domElement.addEventListener('mousedown', onMouseDown);
+        renderer.domElement.addEventListener('mouseup', onMouseUp);
+        renderer.domElement.addEventListener('mousemove', onMouseMove);
+        renderer.domElement.addEventListener('wheel', onWheel);
+        
+        // Initialize the global layout system
+        createGlobalLayouts();
+        createScriptFilters();
+        
+        // Set initial camera position for global overview
+        camera.position.set(200, 150, 200);
+        camera.lookAt(0, 0, 0);
+        
+        // Animation loop with performance optimization
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Auto rotation
+            if (autoRotate && !mouseDown) {
+                cameraAngle.y += 0.001;
+                updateCameraPosition();
+            }
+            
+            // Animate blocks with performance consideration
+            const time = Date.now() * 0.001;
+            let blockCount = 0;
+            
+            Object.values(allLayoutBlocks).forEach(scriptFamily => {
+                Object.values(scriptFamily).forEach(layout => {
+                    layout.flat().forEach((block, index) => {
+                        if (block && block.visible && blockCount < 500) { // Limit animations for performance
+                            blockCount++;
+                            
+                            if (block !== selectedBlock) {
+                                const freq = block.userData.frequency || 0;
+                                const pulseSpeed = 0.3 + freq * 0.05;
+                                const pulse = Math.sin(time * pulseSpeed + index * 0.1) * 0.1 + 0.9;
+                                
+                                if (block.material.opacity) {
+                                    const baseOpacity = 0.4 + Math.min(freq / 10, 1) * 0.5;
+                                    block.material.opacity = baseOpacity * pulse;
+                                }
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Animate connections with reduced frequency
+            if (Math.floor(time * 10) % 3 === 0) {
+                allConnections.forEach((conn, index) => {
+                    if (conn.visible && index % 10 === Math.floor(time) % 10) {
+                        const pulse = Math.sin(time * 2 + index * 0.2) * 0.3 + 0.5;
+                        conn.material.opacity = pulse * (conn.userData.type === 'selected' ? 1 : 0.6);
+                    }
+                });
+            }
+            
+            renderer.render(scene, camera);
+        }
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        
+        // Keyboard shortcuts for navigation
+        document.addEventListener('keydown', (event) => {
+            switch(event.key.toLowerCase()) {
+                case 'c': toggleAllConnections(); break;
+                case 'x': toggleCrossScriptBridges(); break;
+                case 's': toggleSameLanguage(); break;
+                case 'r': resetGlobalView(); break;
+                case 'a': animateByScript(); break;
+                case 'g': animateByRegion(); break;
+                case 'e': showGlobalStats(); break;
+                case ' ': 
+                    event.preventDefault();
+                    toggleRotation(); 
+                    break;
+            }
+        });
+        
+        // Start the animation
+        animate();
+    </script>
+</body>
+</html>
