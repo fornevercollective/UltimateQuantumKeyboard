@@ -1,0 +1,2620 @@
+{
+  "the": {
+    "qwerty": {
+      "compression_ratio": 2.252769298735725,
+      "compressed_size": 30
+    },
+    "dvorak": {
+      "compression_ratio": 2.3104797917949518,
+      "compressed_size": 26
+    },
+    "colemak": {
+      "compression_ratio": 2.2183438272938236,
+      "compressed_size": 28
+    },
+    "azerty": {
+      "compression_ratio": 2.270067825207009,
+      "compressed_size": 32
+    },
+    "qwertz": {
+      "compression_ratio": 2.305191822302978,
+      "compressed_size": 33
+    }
+  },
+  "be": {
+    "qwerty": {
+      "compression_ratio": 2.1970102454720775,
+      "compressed_size": 18
+    },
+    "dvorak": {
+      "compression_ratio": 2.2140920163807603,
+      "compressed_size": 18
+    },
+    "colemak": {
+      "compression_ratio": 2.153052017931188,
+      "compressed_size": 16
+    },
+    "azerty": {
+      "compression_ratio": 2.195102229442683,
+      "compressed_size": 22
+    },
+    "qwertz": {
+      "compression_ratio": 2.197245703172972,
+      "compressed_size": 19
+    }
+  },
+  "to": {
+    "qwerty": {
+      "compression_ratio": 2.1707432891514693,
+      "compressed_size": 21
+    },
+    "dvorak": {
+      "compression_ratio": 2.1792949616990747,
+      "compressed_size": 19
+    },
+    "colemak": {
+      "compression_ratio": 2.175187166855846,
+      "compressed_size": 16
+    },
+    "azerty": {
+      "compression_ratio": 2.190756606608051,
+      "compressed_size": 19
+    },
+    "qwertz": {
+      "compression_ratio": 2.1738511051667433,
+      "compressed_size": 19
+    }
+  },
+  "of": {
+    "qwerty": {
+      "compression_ratio": 2.238684045830647,
+      "compressed_size": 20
+    },
+    "dvorak": {
+      "compression_ratio": 2.1925512745303006,
+      "compressed_size": 17
+    },
+    "colemak": {
+      "compression_ratio": 2.182205908382065,
+      "compressed_size": 18
+    },
+    "azerty": {
+      "compression_ratio": 2.1981875624182754,
+      "compressed_size": 22
+    },
+    "qwertz": {
+      "compression_ratio": 2.1705695188614933,
+      "compressed_size": 19
+    }
+  },
+  "and": {
+    "qwerty": {
+      "compression_ratio": 2.286737217520033,
+      "compressed_size": 31
+    },
+    "dvorak": {
+      "compression_ratio": 2.236994920136602,
+      "compressed_size": 28
+    },
+    "colemak": {
+      "compression_ratio": 2.3119197956678077,
+      "compressed_size": 24
+    },
+    "azerty": {
+      "compression_ratio": 2.2826440594724864,
+      "compressed_size": 30
+    },
+    "qwertz": {
+      "compression_ratio": 2.305146184776435,
+      "compressed_size": 31
+    }
+  },
+  "a": {
+    "qwerty": {
+      "compression_ratio": 2.0832762493104657,
+      "compressed_size": 9
+    },
+    "dvorak": {
+      "compression_ratio": 2.0946464364013067,
+      "compressed_size": 9
+    },
+    "colemak": {
+      "compression_ratio": 2.095382082268201,
+      "compressed_size": 8
+    },
+    "azerty": {
+      "compression_ratio": 2.0845017234801118,
+      "compressed_size": 10
+    },
+    "qwertz": {
+      "compression_ratio": 2.09104558981149,
+      "compressed_size": 10
+    }
+  },
+  "in": {
+    "qwerty": {
+      "compression_ratio": 2.2176059731283355,
+      "compressed_size": 18
+    },
+    "dvorak": {
+      "compression_ratio": 2.1550879149723823,
+      "compressed_size": 18
+    },
+    "colemak": {
+      "compression_ratio": 2.2091903435049267,
+      "compressed_size": 16
+    },
+    "azerty": {
+      "compression_ratio": 2.2417400785691703,
+      "compressed_size": 20
+    },
+    "qwertz": {
+      "compression_ratio": 2.2385438721400304,
+      "compressed_size": 19
+    }
+  },
+  "that": {
+    "qwerty": {
+      "compression_ratio": 2.399275043354294,
+      "compressed_size": 39
+    },
+    "dvorak": {
+      "compression_ratio": 2.359624543755364,
+      "compressed_size": 35
+    },
+    "colemak": {
+      "compression_ratio": 2.367429924515326,
+      "compressed_size": 39
+    },
+    "azerty": {
+      "compression_ratio": 2.4078729203398503,
+      "compressed_size": 43
+    },
+    "qwertz": {
+      "compression_ratio": 2.34175569218342,
+      "compressed_size": 41
+    }
+  },
+  "have": {
+    "qwerty": {
+      "compression_ratio": 2.4115076307761183,
+      "compressed_size": 37
+    },
+    "dvorak": {
+      "compression_ratio": 2.3936334890502735,
+      "compressed_size": 39
+    },
+    "colemak": {
+      "compression_ratio": 2.3186082210741676,
+      "compressed_size": 37
+    },
+    "azerty": {
+      "compression_ratio": 2.4202137536910575,
+      "compressed_size": 38
+    },
+    "qwertz": {
+      "compression_ratio": 2.4565022951159676,
+      "compressed_size": 43
+    }
+  },
+  "I": {
+    "qwerty": {
+      "compression_ratio": 2.1121835057608225,
+      "compressed_size": 10
+    },
+    "dvorak": {
+      "compression_ratio": 2.095455457078074,
+      "compressed_size": 9
+    },
+    "colemak": {
+      "compression_ratio": 2.1020040504770203,
+      "compressed_size": 8
+    },
+    "azerty": {
+      "compression_ratio": 2.091076858896998,
+      "compressed_size": 11
+    },
+    "qwertz": {
+      "compression_ratio": 2.0922270195165993,
+      "compressed_size": 11
+    }
+  },
+  "it": {
+    "qwerty": {
+      "compression_ratio": 2.2231987731387806,
+      "compressed_size": 18
+    },
+    "dvorak": {
+      "compression_ratio": 2.217793392575398,
+      "compressed_size": 19
+    },
+    "colemak": {
+      "compression_ratio": 2.180692982034523,
+      "compressed_size": 17
+    },
+    "azerty": {
+      "compression_ratio": 2.189629514722667,
+      "compressed_size": 19
+    },
+    "qwertz": {
+      "compression_ratio": 2.234024824857043,
+      "compressed_size": 19
+    }
+  },
+  "for": {
+    "qwerty": {
+      "compression_ratio": 2.245971499091955,
+      "compressed_size": 31
+    },
+    "dvorak": {
+      "compression_ratio": 2.2921389637268668,
+      "compressed_size": 25
+    },
+    "colemak": {
+      "compression_ratio": 2.256975178034124,
+      "compressed_size": 24
+    },
+    "azerty": {
+      "compression_ratio": 2.2539652331509505,
+      "compressed_size": 31
+    },
+    "qwertz": {
+      "compression_ratio": 2.2564541039223145,
+      "compressed_size": 31
+    }
+  },
+  "not": {
+    "qwerty": {
+      "compression_ratio": 2.3373160173587144,
+      "compressed_size": 29
+    },
+    "dvorak": {
+      "compression_ratio": 2.3232522097411064,
+      "compressed_size": 31
+    },
+    "colemak": {
+      "compression_ratio": 2.292811784417697,
+      "compressed_size": 28
+    },
+    "azerty": {
+      "compression_ratio": 2.266526464936715,
+      "compressed_size": 29
+    },
+    "qwertz": {
+      "compression_ratio": 2.2648273692861833,
+      "compressed_size": 28
+    }
+  },
+  "on": {
+    "qwerty": {
+      "compression_ratio": 2.1934928661383797,
+      "compressed_size": 20
+    },
+    "dvorak": {
+      "compression_ratio": 2.2066079987578346,
+      "compressed_size": 20
+    },
+    "colemak": {
+      "compression_ratio": 2.179545333273337,
+      "compressed_size": 18
+    },
+    "azerty": {
+      "compression_ratio": 2.2403772536352555,
+      "compressed_size": 20
+    },
+    "qwertz": {
+      "compression_ratio": 2.1918494479263986,
+      "compressed_size": 20
+    }
+  },
+  "with": {
+    "qwerty": {
+      "compression_ratio": 2.476804364671085,
+      "compressed_size": 38
+    },
+    "dvorak": {
+      "compression_ratio": 2.3330398833845907,
+      "compressed_size": 36
+    },
+    "colemak": {
+      "compression_ratio": 2.4274314173608995,
+      "compressed_size": 38
+    },
+    "azerty": {
+      "compression_ratio": 2.492424520555046,
+      "compressed_size": 41
+    },
+    "qwertz": {
+      "compression_ratio": 2.372875032132595,
+      "compressed_size": 39
+    }
+  },
+  "he": {
+    "qwerty": {
+      "compression_ratio": 2.19599795965304,
+      "compressed_size": 20
+    },
+    "dvorak": {
+      "compression_ratio": 2.1640858224117654,
+      "compressed_size": 17
+    },
+    "colemak": {
+      "compression_ratio": 2.2119715987391158,
+      "compressed_size": 16
+    },
+    "azerty": {
+      "compression_ratio": 2.2019999306700297,
+      "compressed_size": 20
+    },
+    "qwertz": {
+      "compression_ratio": 2.23140119764797,
+      "compressed_size": 20
+    }
+  },
+  "as": {
+    "qwerty": {
+      "compression_ratio": 2.21769027430577,
+      "compressed_size": 21
+    },
+    "dvorak": {
+      "compression_ratio": 2.156171860486449,
+      "compressed_size": 20
+    },
+    "colemak": {
+      "compression_ratio": 2.208316845491907,
+      "compressed_size": 18
+    },
+    "azerty": {
+      "compression_ratio": 2.228923092504372,
+      "compressed_size": 19
+    },
+    "qwertz": {
+      "compression_ratio": 2.197764519465155,
+      "compressed_size": 18
+    }
+  },
+  "you": {
+    "qwerty": {
+      "compression_ratio": 2.281856380904157,
+      "compressed_size": 28
+    },
+    "dvorak": {
+      "compression_ratio": 2.258542525379952,
+      "compressed_size": 29
+    },
+    "colemak": {
+      "compression_ratio": 2.2191905979371347,
+      "compressed_size": 27
+    },
+    "azerty": {
+      "compression_ratio": 2.3761594071366225,
+      "compressed_size": 30
+    },
+    "qwertz": {
+      "compression_ratio": 2.2710664805780354,
+      "compressed_size": 30
+    }
+  },
+  "do": {
+    "qwerty": {
+      "compression_ratio": 2.228491720341877,
+      "compressed_size": 18
+    },
+    "dvorak": {
+      "compression_ratio": 2.1877962433789975,
+      "compressed_size": 20
+    },
+    "colemak": {
+      "compression_ratio": 2.167052702921456,
+      "compressed_size": 17
+    },
+    "azerty": {
+      "compression_ratio": 2.23507973836637,
+      "compressed_size": 21
+    },
+    "qwertz": {
+      "compression_ratio": 2.229593998020624,
+      "compressed_size": 19
+    }
+  },
+  "at": {
+    "qwerty": {
+      "compression_ratio": 2.165521531692825,
+      "compressed_size": 21
+    },
+    "dvorak": {
+      "compression_ratio": 2.1749890039579474,
+      "compressed_size": 20
+    },
+    "colemak": {
+      "compression_ratio": 2.168055225554702,
+      "compressed_size": 16
+    },
+    "azerty": {
+      "compression_ratio": 2.2295849695285153,
+      "compressed_size": 19
+    },
+    "qwertz": {
+      "compression_ratio": 2.215779984161587,
+      "compressed_size": 20
+    }
+  },
+  "this": {
+    "qwerty": {
+      "compression_ratio": 2.3981793760854107,
+      "compressed_size": 42
+    },
+    "dvorak": {
+      "compression_ratio": 2.4101569829295793,
+      "compressed_size": 36
+    },
+    "colemak": {
+      "compression_ratio": 2.2901418298974825,
+      "compressed_size": 39
+    },
+    "azerty": {
+      "compression_ratio": 2.4767495212511883,
+      "compressed_size": 43
+    },
+    "qwertz": {
+      "compression_ratio": 2.4506540357607545,
+      "compressed_size": 37
+    }
+  },
+  "but": {
+    "qwerty": {
+      "compression_ratio": 2.2855999991700147,
+      "compressed_size": 28
+    },
+    "dvorak": {
+      "compression_ratio": 2.2895766656813383,
+      "compressed_size": 29
+    },
+    "colemak": {
+      "compression_ratio": 2.3006091750772955,
+      "compressed_size": 27
+    },
+    "azerty": {
+      "compression_ratio": 2.3226448465009186,
+      "compressed_size": 32
+    },
+    "qwertz": {
+      "compression_ratio": 2.311349344863363,
+      "compressed_size": 30
+    }
+  },
+  "his": {
+    "qwerty": {
+      "compression_ratio": 2.2518327870298074,
+      "compressed_size": 27
+    },
+    "dvorak": {
+      "compression_ratio": 2.3375555518339928,
+      "compressed_size": 29
+    },
+    "colemak": {
+      "compression_ratio": 2.2182025644376226,
+      "compressed_size": 24
+    },
+    "azerty": {
+      "compression_ratio": 2.257537242948231,
+      "compressed_size": 29
+    },
+    "qwertz": {
+      "compression_ratio": 2.329951182098064,
+      "compressed_size": 31
+    }
+  },
+  "by": {
+    "qwerty": {
+      "compression_ratio": 2.185054859589256,
+      "compressed_size": 20
+    },
+    "dvorak": {
+      "compression_ratio": 2.2158728019061105,
+      "compressed_size": 19
+    },
+    "colemak": {
+      "compression_ratio": 2.2084903412982664,
+      "compressed_size": 18
+    },
+    "azerty": {
+      "compression_ratio": 2.246906000656478,
+      "compressed_size": 19
+    },
+    "qwertz": {
+      "compression_ratio": 2.2441188073655796,
+      "compressed_size": 19
+    }
+  },
+  "from": {
+    "qwerty": {
+      "compression_ratio": 2.332470195451617,
+      "compressed_size": 37
+    },
+    "dvorak": {
+      "compression_ratio": 2.317765566966698,
+      "compressed_size": 35
+    },
+    "colemak": {
+      "compression_ratio": 2.325057460354941,
+      "compressed_size": 38
+    },
+    "azerty": {
+      "compression_ratio": 2.462850929724633,
+      "compressed_size": 37
+    },
+    "qwertz": {
+      "compression_ratio": 2.3494712399548354,
+      "compressed_size": 40
+    }
+  },
+  "they": {
+    "qwerty": {
+      "compression_ratio": 2.3866010557602104,
+      "compressed_size": 38
+    },
+    "dvorak": {
+      "compression_ratio": 2.4117845094221604,
+      "compressed_size": 38
+    },
+    "colemak": {
+      "compression_ratio": 2.312811687840592,
+      "compressed_size": 35
+    },
+    "azerty": {
+      "compression_ratio": 2.4955969986070228,
+      "compressed_size": 40
+    },
+    "qwertz": {
+      "compression_ratio": 2.390636674067873,
+      "compressed_size": 44
+    }
+  },
+  "we": {
+    "qwerty": {
+      "compression_ratio": 2.1851226630249694,
+      "compressed_size": 19
+    },
+    "dvorak": {
+      "compression_ratio": 2.173862459797009,
+      "compressed_size": 17
+    },
+    "colemak": {
+      "compression_ratio": 2.1747996826702263,
+      "compressed_size": 16
+    },
+    "azerty": {
+      "compression_ratio": 2.172101748694623,
+      "compressed_size": 21
+    },
+    "qwertz": {
+      "compression_ratio": 2.2211410229414508,
+      "compressed_size": 22
+    }
+  },
+  "say": {
+    "qwerty": {
+      "compression_ratio": 2.2822018578179706,
+      "compressed_size": 31
+    },
+    "dvorak": {
+      "compression_ratio": 2.299082664047962,
+      "compressed_size": 29
+    },
+    "colemak": {
+      "compression_ratio": 2.219732694850495,
+      "compressed_size": 26
+    },
+    "azerty": {
+      "compression_ratio": 2.2843613148590367,
+      "compressed_size": 29
+    },
+    "qwertz": {
+      "compression_ratio": 2.3469194447696835,
+      "compressed_size": 28
+    }
+  },
+  "her": {
+    "qwerty": {
+      "compression_ratio": 2.2646660572061528,
+      "compressed_size": 27
+    },
+    "dvorak": {
+      "compression_ratio": 2.272373428087464,
+      "compressed_size": 26
+    },
+    "colemak": {
+      "compression_ratio": 2.3066024642552003,
+      "compressed_size": 27
+    },
+    "azerty": {
+      "compression_ratio": 2.2902300432013103,
+      "compressed_size": 29
+    },
+    "qwertz": {
+      "compression_ratio": 2.3546753361816135,
+      "compressed_size": 32
+    }
+  },
+  "she": {
+    "qwerty": {
+      "compression_ratio": 2.2970261829383687,
+      "compressed_size": 27
+    },
+    "dvorak": {
+      "compression_ratio": 2.320630858755184,
+      "compressed_size": 25
+    },
+    "colemak": {
+      "compression_ratio": 2.243612830929474,
+      "compressed_size": 25
+    },
+    "azerty": {
+      "compression_ratio": 2.256037783379605,
+      "compressed_size": 32
+    },
+    "qwertz": {
+      "compression_ratio": 2.3153065070409062,
+      "compressed_size": 33
+    }
+  },
+  "or": {
+    "qwerty": {
+      "compression_ratio": 2.196719841511249,
+      "compressed_size": 21
+    },
+    "dvorak": {
+      "compression_ratio": 2.2056894477819275,
+      "compressed_size": 18
+    },
+    "colemak": {
+      "compression_ratio": 2.1705106096980673,
+      "compressed_size": 17
+    },
+    "azerty": {
+      "compression_ratio": 2.194446323653242,
+      "compressed_size": 21
+    },
+    "qwertz": {
+      "compression_ratio": 2.164771519843132,
+      "compressed_size": 18
+    }
+  },
+  "an": {
+    "qwerty": {
+      "compression_ratio": 2.1744285415285476,
+      "compressed_size": 21
+    },
+    "dvorak": {
+      "compression_ratio": 2.195662378293094,
+      "compressed_size": 20
+    },
+    "colemak": {
+      "compression_ratio": 2.1592126466510466,
+      "compressed_size": 18
+    },
+    "azerty": {
+      "compression_ratio": 2.1843548445832526,
+      "compressed_size": 19
+    },
+    "qwertz": {
+      "compression_ratio": 2.180838916061675,
+      "compressed_size": 21
+    }
+  },
+  "will": {
+    "qwerty": {
+      "compression_ratio": 2.4362257779343683,
+      "compressed_size": 37
+    },
+    "dvorak": {
+      "compression_ratio": 2.348652384371229,
+      "compressed_size": 35
+    },
+    "colemak": {
+      "compression_ratio": 2.3390080342642245,
+      "compressed_size": 32
+    },
+    "azerty": {
+      "compression_ratio": 2.383577929610413,
+      "compressed_size": 42
+    },
+    "qwertz": {
+      "compression_ratio": 2.41658949961014,
+      "compressed_size": 38
+    }
+  },
+  "my": {
+    "qwerty": {
+      "compression_ratio": 2.2127128203044815,
+      "compressed_size": 18
+    },
+    "dvorak": {
+      "compression_ratio": 2.176489530277934,
+      "compressed_size": 17
+    },
+    "colemak": {
+      "compression_ratio": 2.201038627356052,
+      "compressed_size": 19
+    },
+    "azerty": {
+      "compression_ratio": 2.2161578808437628,
+      "compressed_size": 21
+    },
+    "qwertz": {
+      "compression_ratio": 2.2340732466275446,
+      "compressed_size": 21
+    }
+  },
+  "one": {
+    "qwerty": {
+      "compression_ratio": 2.30679183447144,
+      "compressed_size": 29
+    },
+    "dvorak": {
+      "compression_ratio": 2.249938512190968,
+      "compressed_size": 28
+    },
+    "colemak": {
+      "compression_ratio": 2.242469328830941,
+      "compressed_size": 27
+    },
+    "azerty": {
+      "compression_ratio": 2.291760373030016,
+      "compressed_size": 31
+    },
+    "qwertz": {
+      "compression_ratio": 2.3661012235765977,
+      "compressed_size": 31
+    }
+  },
+  "all": {
+    "qwerty": {
+      "compression_ratio": 2.3536375267074647,
+      "compressed_size": 30
+    },
+    "dvorak": {
+      "compression_ratio": 2.254945521102949,
+      "compressed_size": 29
+    },
+    "colemak": {
+      "compression_ratio": 2.2677739938176966,
+      "compressed_size": 24
+    },
+    "azerty": {
+      "compression_ratio": 2.35278501354299,
+      "compressed_size": 28
+    },
+    "qwertz": {
+      "compression_ratio": 2.2616251648348324,
+      "compressed_size": 27
+    }
+  },
+  "would": {
+    "qwerty": {
+      "compression_ratio": 2.5211022035722412,
+      "compressed_size": 53
+    },
+    "dvorak": {
+      "compression_ratio": 2.3942657545715225,
+      "compressed_size": 51
+    },
+    "colemak": {
+      "compression_ratio": 2.431808414216509,
+      "compressed_size": 41
+    },
+    "azerty": {
+      "compression_ratio": 2.6216292737531517,
+      "compressed_size": 47
+    },
+    "qwertz": {
+      "compression_ratio": 2.5210605573497684,
+      "compressed_size": 49
+    }
+  },
+  "there": {
+    "qwerty": {
+      "compression_ratio": 2.5968789365355107,
+      "compressed_size": 49
+    },
+    "dvorak": {
+      "compression_ratio": 2.4299010326318675,
+      "compressed_size": 51
+    },
+    "colemak": {
+      "compression_ratio": 2.4367369426147523,
+      "compressed_size": 44
+    },
+    "azerty": {
+      "compression_ratio": 2.433758874576199,
+      "compressed_size": 55
+    },
+    "qwertz": {
+      "compression_ratio": 2.4950732754826683,
+      "compressed_size": 54
+    }
+  },
+  "their": {
+    "qwerty": {
+      "compression_ratio": 2.432653899066058,
+      "compressed_size": 48
+    },
+    "dvorak": {
+      "compression_ratio": 2.4594175011522452,
+      "compressed_size": 44
+    },
+    "colemak": {
+      "compression_ratio": 2.4641034770218058,
+      "compressed_size": 41
+    },
+    "azerty": {
+      "compression_ratio": 2.422646407453927,
+      "compressed_size": 55
+    },
+    "qwertz": {
+      "compression_ratio": 2.5538523112331966,
+      "compressed_size": 54
+    }
+  },
+  "what": {
+    "qwerty": {
+      "compression_ratio": 2.3996078655311277,
+      "compressed_size": 40
+    },
+    "dvorak": {
+      "compression_ratio": 2.40542943915994,
+      "compressed_size": 40
+    },
+    "colemak": {
+      "compression_ratio": 2.32211322849071,
+      "compressed_size": 39
+    },
+    "azerty": {
+      "compression_ratio": 2.5030966930715723,
+      "compressed_size": 46
+    },
+    "qwertz": {
+      "compression_ratio": 2.467456050840006,
+      "compressed_size": 43
+    }
+  },
+  "so": {
+    "qwerty": {
+      "compression_ratio": 2.2014087487072262,
+      "compressed_size": 20
+    },
+    "dvorak": {
+      "compression_ratio": 2.178211557760145,
+      "compressed_size": 18
+    },
+    "colemak": {
+      "compression_ratio": 2.20547169437214,
+      "compressed_size": 16
+    },
+    "azerty": {
+      "compression_ratio": 2.1935206441932493,
+      "compressed_size": 22
+    },
+    "qwertz": {
+      "compression_ratio": 2.17576329081035,
+      "compressed_size": 19
+    }
+  },
+  "up": {
+    "qwerty": {
+      "compression_ratio": 2.222141751903335,
+      "compressed_size": 18
+    },
+    "dvorak": {
+      "compression_ratio": 2.222720162662501,
+      "compressed_size": 20
+    },
+    "colemak": {
+      "compression_ratio": 2.1759865682320862,
+      "compressed_size": 17
+    },
+    "azerty": {
+      "compression_ratio": 2.1883722686356073,
+      "compressed_size": 22
+    },
+    "qwertz": {
+      "compression_ratio": 2.1834225717569145,
+      "compressed_size": 21
+    }
+  },
+  "out": {
+    "qwerty": {
+      "compression_ratio": 2.3068808357712283,
+      "compressed_size": 28
+    },
+    "dvorak": {
+      "compression_ratio": 2.2656486001126064,
+      "compressed_size": 26
+    },
+    "colemak": {
+      "compression_ratio": 2.2401104547010693,
+      "compressed_size": 29
+    },
+    "azerty": {
+      "compression_ratio": 2.375364820020943,
+      "compressed_size": 31
+    },
+    "qwertz": {
+      "compression_ratio": 2.285701861518965,
+      "compressed_size": 31
+    }
+  },
+  "if": {
+    "qwerty": {
+      "compression_ratio": 2.2322940517319676,
+      "compressed_size": 20
+    },
+    "dvorak": {
+      "compression_ratio": 2.1962748804982617,
+      "compressed_size": 19
+    },
+    "colemak": {
+      "compression_ratio": 2.191761883062183,
+      "compressed_size": 19
+    },
+    "azerty": {
+      "compression_ratio": 2.249663137085941,
+      "compressed_size": 22
+    },
+    "qwertz": {
+      "compression_ratio": 2.1792683495358047,
+      "compressed_size": 20
+    }
+  },
+  "about": {
+    "qwerty": {
+      "compression_ratio": 2.565891493783484,
+      "compressed_size": 48
+    },
+    "dvorak": {
+      "compression_ratio": 2.5093673244432453,
+      "compressed_size": 52
+    },
+    "colemak": {
+      "compression_ratio": 2.4528953136068083,
+      "compressed_size": 43
+    },
+    "azerty": {
+      "compression_ratio": 2.45640512227972,
+      "compressed_size": 53
+    },
+    "qwertz": {
+      "compression_ratio": 2.6113290994057725,
+      "compressed_size": 54
+    }
+  },
+  "who": {
+    "qwerty": {
+      "compression_ratio": 2.3356109328034353,
+      "compressed_size": 31
+    },
+    "dvorak": {
+      "compression_ratio": 2.299416366402449,
+      "compressed_size": 31
+    },
+    "colemak": {
+      "compression_ratio": 2.317598632495782,
+      "compressed_size": 27
+    },
+    "azerty": {
+      "compression_ratio": 2.3339088136741015,
+      "compressed_size": 31
+    },
+    "qwertz": {
+      "compression_ratio": 2.2926914621256262,
+      "compressed_size": 33
+    }
+  },
+  "get": {
+    "qwerty": {
+      "compression_ratio": 2.2535797243537923,
+      "compressed_size": 31
+    },
+    "dvorak": {
+      "compression_ratio": 2.2886493300846364,
+      "compressed_size": 29
+    },
+    "colemak": {
+      "compression_ratio": 2.2954939723902816,
+      "compressed_size": 28
+    },
+    "azerty": {
+      "compression_ratio": 2.374982216129327,
+      "compressed_size": 30
+    },
+    "qwertz": {
+      "compression_ratio": 2.262142628112402,
+      "compressed_size": 32
+    }
+  },
+  "which": {
+    "qwerty": {
+      "compression_ratio": 2.5879822146460274,
+      "compressed_size": 50
+    },
+    "dvorak": {
+      "compression_ratio": 2.416875675991975,
+      "compressed_size": 48
+    },
+    "colemak": {
+      "compression_ratio": 2.5053148750710075,
+      "compressed_size": 41
+    },
+    "azerty": {
+      "compression_ratio": 2.451774235598583,
+      "compressed_size": 50
+    },
+    "qwertz": {
+      "compression_ratio": 2.476363859103301,
+      "compressed_size": 52
+    }
+  },
+  "go": {
+    "qwerty": {
+      "compression_ratio": 2.1762112912095852,
+      "compressed_size": 18
+    },
+    "dvorak": {
+      "compression_ratio": 2.1863967710573498,
+      "compressed_size": 19
+    },
+    "colemak": {
+      "compression_ratio": 2.204204603635953,
+      "compressed_size": 18
+    },
+    "azerty": {
+      "compression_ratio": 2.2405177858427194,
+      "compressed_size": 21
+    },
+    "qwertz": {
+      "compression_ratio": 2.1808941081138635,
+      "compressed_size": 19
+    }
+  },
+  "me": {
+    "qwerty": {
+      "compression_ratio": 2.231206367467885,
+      "compressed_size": 20
+    },
+    "dvorak": {
+      "compression_ratio": 2.1946077744048385,
+      "compressed_size": 18
+    },
+    "colemak": {
+      "compression_ratio": 2.146012252417984,
+      "compressed_size": 18
+    },
+    "azerty": {
+      "compression_ratio": 2.175295632174514,
+      "compressed_size": 21
+    },
+    "qwertz": {
+      "compression_ratio": 2.198372248019539,
+      "compressed_size": 20
+    }
+  },
+  "when": {
+    "qwerty": {
+      "compression_ratio": 2.4527295722040052,
+      "compressed_size": 40
+    },
+    "dvorak": {
+      "compression_ratio": 2.414822946668334,
+      "compressed_size": 38
+    },
+    "colemak": {
+      "compression_ratio": 2.4245400011184537,
+      "compressed_size": 37
+    },
+    "azerty": {
+      "compression_ratio": 2.498432100570187,
+      "compressed_size": 38
+    },
+    "qwertz": {
+      "compression_ratio": 2.347960172753261,
+      "compressed_size": 38
+    }
+  },
+  "make": {
+    "qwerty": {
+      "compression_ratio": 2.368516982167498,
+      "compressed_size": 37
+    },
+    "dvorak": {
+      "compression_ratio": 2.419586072360805,
+      "compressed_size": 39
+    },
+    "colemak": {
+      "compression_ratio": 2.3923436005983993,
+      "compressed_size": 34
+    },
+    "azerty": {
+      "compression_ratio": 2.4412653975580554,
+      "compressed_size": 38
+    },
+    "qwertz": {
+      "compression_ratio": 2.461146163319778,
+      "compressed_size": 37
+    }
+  },
+  "can": {
+    "qwerty": {
+      "compression_ratio": 2.26518092077692,
+      "compressed_size": 28
+    },
+    "dvorak": {
+      "compression_ratio": 2.3258874394518343,
+      "compressed_size": 29
+    },
+    "colemak": {
+      "compression_ratio": 2.288533812121891,
+      "compressed_size": 27
+    },
+    "azerty": {
+      "compression_ratio": 2.3065478611712416,
+      "compressed_size": 32
+    },
+    "qwertz": {
+      "compression_ratio": 2.3107708626914505,
+      "compressed_size": 32
+    }
+  },
+  "like": {
+    "qwerty": {
+      "compression_ratio": 2.390808983397074,
+      "compressed_size": 42
+    },
+    "dvorak": {
+      "compression_ratio": 2.4196098544217137,
+      "compressed_size": 38
+    },
+    "colemak": {
+      "compression_ratio": 2.326284016735811,
+      "compressed_size": 34
+    },
+    "azerty": {
+      "compression_ratio": 2.468831393831633,
+      "compressed_size": 45
+    },
+    "qwertz": {
+      "compression_ratio": 2.4609631144351396,
+      "compressed_size": 43
+    }
+  },
+  "time": {
+    "qwerty": {
+      "compression_ratio": 2.3644435187085517,
+      "compressed_size": 42
+    },
+    "dvorak": {
+      "compression_ratio": 2.39995726931019,
+      "compressed_size": 41
+    },
+    "colemak": {
+      "compression_ratio": 2.398181247083602,
+      "compressed_size": 36
+    },
+    "azerty": {
+      "compression_ratio": 2.459008507498933,
+      "compressed_size": 45
+    },
+    "qwertz": {
+      "compression_ratio": 2.432683837770323,
+      "compressed_size": 39
+    }
+  },
+  "no": {
+    "qwerty": {
+      "compression_ratio": 2.2352396336148335,
+      "compressed_size": 21
+    },
+    "dvorak": {
+      "compression_ratio": 2.1888260645521593,
+      "compressed_size": 17
+    },
+    "colemak": {
+      "compression_ratio": 2.1781332169667897,
+      "compressed_size": 18
+    },
+    "azerty": {
+      "compression_ratio": 2.2432993790053883,
+      "compressed_size": 20
+    },
+    "qwertz": {
+      "compression_ratio": 2.2265324290728308,
+      "compressed_size": 18
+    }
+  },
+  "just": {
+    "qwerty": {
+      "compression_ratio": 2.32873074678166,
+      "compressed_size": 37
+    },
+    "dvorak": {
+      "compression_ratio": 2.4434388726318543,
+      "compressed_size": 41
+    },
+    "colemak": {
+      "compression_ratio": 2.2908875629053456,
+      "compressed_size": 32
+    },
+    "azerty": {
+      "compression_ratio": 2.384831370505547,
+      "compressed_size": 41
+    },
+    "qwertz": {
+      "compression_ratio": 2.440589298989883,
+      "compressed_size": 40
+    }
+  },
+  "him": {
+    "qwerty": {
+      "compression_ratio": 2.245727392927701,
+      "compressed_size": 28
+    },
+    "dvorak": {
+      "compression_ratio": 2.3288955953250268,
+      "compressed_size": 29
+    },
+    "colemak": {
+      "compression_ratio": 2.302907436459136,
+      "compressed_size": 24
+    },
+    "azerty": {
+      "compression_ratio": 2.344603189967041,
+      "compressed_size": 34
+    },
+    "qwertz": {
+      "compression_ratio": 2.339730833139129,
+      "compressed_size": 32
+    }
+  },
+  "know": {
+    "qwerty": {
+      "compression_ratio": 2.4188100674470547,
+      "compressed_size": 39
+    },
+    "dvorak": {
+      "compression_ratio": 2.395230763326911,
+      "compressed_size": 40
+    },
+    "colemak": {
+      "compression_ratio": 2.304781575840059,
+      "compressed_size": 32
+    },
+    "azerty": {
+      "compression_ratio": 2.4696408705118227,
+      "compressed_size": 39
+    },
+    "qwertz": {
+      "compression_ratio": 2.3644625399722696,
+      "compressed_size": 39
+    }
+  },
+  "take": {
+    "qwerty": {
+      "compression_ratio": 2.4302428578508324,
+      "compressed_size": 43
+    },
+    "dvorak": {
+      "compression_ratio": 2.3206880548201987,
+      "compressed_size": 39
+    },
+    "colemak": {
+      "compression_ratio": 2.343873280329734,
+      "compressed_size": 33
+    },
+    "azerty": {
+      "compression_ratio": 2.3376913775465007,
+      "compressed_size": 43
+    },
+    "qwertz": {
+      "compression_ratio": 2.3448289522412966,
+      "compressed_size": 43
+    }
+  },
+  "people": {
+    "qwerty": {
+      "compression_ratio": 2.533164983528515,
+      "compressed_size": 59
+    },
+    "dvorak": {
+      "compression_ratio": 2.460170188700185,
+      "compressed_size": 57
+    },
+    "colemak": {
+      "compression_ratio": 2.6471386480468766,
+      "compressed_size": 49
+    },
+    "azerty": {
+      "compression_ratio": 2.512356388182615,
+      "compressed_size": 62
+    },
+    "qwertz": {
+      "compression_ratio": 2.6286372299141627,
+      "compressed_size": 66
+    }
+  },
+  "into": {
+    "qwerty": {
+      "compression_ratio": 2.4252282889822725,
+      "compressed_size": 40
+    },
+    "dvorak": {
+      "compression_ratio": 2.4435779937398854,
+      "compressed_size": 36
+    },
+    "colemak": {
+      "compression_ratio": 2.3102413712200613,
+      "compressed_size": 35
+    },
+    "azerty": {
+      "compression_ratio": 2.3709651286272417,
+      "compressed_size": 38
+    },
+    "qwertz": {
+      "compression_ratio": 2.4034140217438473,
+      "compressed_size": 37
+    }
+  },
+  "year": {
+    "qwerty": {
+      "compression_ratio": 2.3906701591417674,
+      "compressed_size": 36
+    },
+    "dvorak": {
+      "compression_ratio": 2.40344668137415,
+      "compressed_size": 34
+    },
+    "colemak": {
+      "compression_ratio": 2.4213825002211102,
+      "compressed_size": 38
+    },
+    "azerty": {
+      "compression_ratio": 2.4486946718225697,
+      "compressed_size": 40
+    },
+    "qwertz": {
+      "compression_ratio": 2.364485293097682,
+      "compressed_size": 41
+    }
+  },
+  "your": {
+    "qwerty": {
+      "compression_ratio": 2.3352854673785584,
+      "compressed_size": 41
+    },
+    "dvorak": {
+      "compression_ratio": 2.3452818309825445,
+      "compressed_size": 36
+    },
+    "colemak": {
+      "compression_ratio": 2.38623895335235,
+      "compressed_size": 34
+    },
+    "azerty": {
+      "compression_ratio": 2.4926447706217267,
+      "compressed_size": 38
+    },
+    "qwertz": {
+      "compression_ratio": 2.3407602860718906,
+      "compressed_size": 42
+    }
+  },
+  "good": {
+    "qwerty": {
+      "compression_ratio": 2.329587682649559,
+      "compressed_size": 40
+    },
+    "dvorak": {
+      "compression_ratio": 2.4353498869512364,
+      "compressed_size": 37
+    },
+    "colemak": {
+      "compression_ratio": 2.359632999206932,
+      "compressed_size": 33
+    },
+    "azerty": {
+      "compression_ratio": 2.4762677569330065,
+      "compressed_size": 44
+    },
+    "qwertz": {
+      "compression_ratio": 2.3732173726310055,
+      "compressed_size": 41
+    }
+  },
+  "some": {
+    "qwerty": {
+      "compression_ratio": 2.3210272490823574,
+      "compressed_size": 41
+    },
+    "dvorak": {
+      "compression_ratio": 2.3072890976689626,
+      "compressed_size": 41
+    },
+    "colemak": {
+      "compression_ratio": 2.422784749033904,
+      "compressed_size": 37
+    },
+    "azerty": {
+      "compression_ratio": 2.4378904431929644,
+      "compressed_size": 39
+    },
+    "qwertz": {
+      "compression_ratio": 2.403297749139149,
+      "compressed_size": 41
+    }
+  },
+  "could": {
+    "qwerty": {
+      "compression_ratio": 2.5433532613674004,
+      "compressed_size": 46
+    },
+    "dvorak": {
+      "compression_ratio": 2.5497109309523216,
+      "compressed_size": 49
+    },
+    "colemak": {
+      "compression_ratio": 2.3768601919315238,
+      "compressed_size": 47
+    },
+    "azerty": {
+      "compression_ratio": 2.6271725934479435,
+      "compressed_size": 51
+    },
+    "qwertz": {
+      "compression_ratio": 2.553119869120899,
+      "compressed_size": 55
+    }
+  },
+  "them": {
+    "qwerty": {
+      "compression_ratio": 2.471158477370953,
+      "compressed_size": 39
+    },
+    "dvorak": {
+      "compression_ratio": 2.325361330270712,
+      "compressed_size": 34
+    },
+    "colemak": {
+      "compression_ratio": 2.3707754664825034,
+      "compressed_size": 36
+    },
+    "azerty": {
+      "compression_ratio": 2.486231683893413,
+      "compressed_size": 42
+    },
+    "qwertz": {
+      "compression_ratio": 2.479946266188562,
+      "compressed_size": 40
+    }
+  },
+  "see": {
+    "qwerty": {
+      "compression_ratio": 2.2847940438715177,
+      "compressed_size": 29
+    },
+    "dvorak": {
+      "compression_ratio": 2.298479004513638,
+      "compressed_size": 27
+    },
+    "colemak": {
+      "compression_ratio": 2.2542205350301185,
+      "compressed_size": 28
+    },
+    "azerty": {
+      "compression_ratio": 2.2951180316487507,
+      "compressed_size": 28
+    },
+    "qwertz": {
+      "compression_ratio": 2.357703707251245,
+      "compressed_size": 32
+    }
+  },
+  "other": {
+    "qwerty": {
+      "compression_ratio": 2.5936660362961543,
+      "compressed_size": 45
+    },
+    "dvorak": {
+      "compression_ratio": 2.499394499977818,
+      "compressed_size": 49
+    },
+    "colemak": {
+      "compression_ratio": 2.416370197803436,
+      "compressed_size": 48
+    },
+    "azerty": {
+      "compression_ratio": 2.52240503010865,
+      "compressed_size": 53
+    },
+    "qwertz": {
+      "compression_ratio": 2.549017597220463,
+      "compressed_size": 55
+    }
+  },
+  "than": {
+    "qwerty": {
+      "compression_ratio": 2.369181598820396,
+      "compressed_size": 42
+    },
+    "dvorak": {
+      "compression_ratio": 2.4452188371172694,
+      "compressed_size": 38
+    },
+    "colemak": {
+      "compression_ratio": 2.3461824362970787,
+      "compressed_size": 39
+    },
+    "azerty": {
+      "compression_ratio": 2.42929049691839,
+      "compressed_size": 45
+    },
+    "qwertz": {
+      "compression_ratio": 2.360934027531977,
+      "compressed_size": 37
+    }
+  },
+  "then": {
+    "qwerty": {
+      "compression_ratio": 2.38777932248104,
+      "compressed_size": 39
+    },
+    "dvorak": {
+      "compression_ratio": 2.391295978139629,
+      "compressed_size": 40
+    },
+    "colemak": {
+      "compression_ratio": 2.354245715772075,
+      "compressed_size": 39
+    },
+    "azerty": {
+      "compression_ratio": 2.435891637378351,
+      "compressed_size": 45
+    },
+    "qwertz": {
+      "compression_ratio": 2.4497599847901834,
+      "compressed_size": 44
+    }
+  },
+  "now": {
+    "qwerty": {
+      "compression_ratio": 2.2824042172037626,
+      "compressed_size": 30
+    },
+    "dvorak": {
+      "compression_ratio": 2.3248482048373447,
+      "compressed_size": 30
+    },
+    "colemak": {
+      "compression_ratio": 2.222382307057459,
+      "compressed_size": 26
+    },
+    "azerty": {
+      "compression_ratio": 2.3197010239212092,
+      "compressed_size": 30
+    },
+    "qwertz": {
+      "compression_ratio": 2.3023662493775245,
+      "compressed_size": 30
+    }
+  },
+  "look": {
+    "qwerty": {
+      "compression_ratio": 2.4067947225878825,
+      "compressed_size": 38
+    },
+    "dvorak": {
+      "compression_ratio": 2.3852594251716335,
+      "compressed_size": 37
+    },
+    "colemak": {
+      "compression_ratio": 2.380062741540408,
+      "compressed_size": 33
+    },
+    "azerty": {
+      "compression_ratio": 2.448025010871116,
+      "compressed_size": 40
+    },
+    "qwertz": {
+      "compression_ratio": 2.331564071067329,
+      "compressed_size": 39
+    }
+  },
+  "only": {
+    "qwerty": {
+      "compression_ratio": 2.378382502931104,
+      "compressed_size": 37
+    },
+    "dvorak": {
+      "compression_ratio": 2.3357353368880855,
+      "compressed_size": 38
+    },
+    "colemak": {
+      "compression_ratio": 2.378679626355203,
+      "compressed_size": 33
+    },
+    "azerty": {
+      "compression_ratio": 2.43648737834885,
+      "compressed_size": 44
+    },
+    "qwertz": {
+      "compression_ratio": 2.4811081953791256,
+      "compressed_size": 36
+    }
+  },
+  "come": {
+    "qwerty": {
+      "compression_ratio": 2.430067455306948,
+      "compressed_size": 38
+    },
+    "dvorak": {
+      "compression_ratio": 2.409205155716794,
+      "compressed_size": 37
+    },
+    "colemak": {
+      "compression_ratio": 2.3477639419651326,
+      "compressed_size": 33
+    },
+    "azerty": {
+      "compression_ratio": 2.3829869540943065,
+      "compressed_size": 46
+    },
+    "qwertz": {
+      "compression_ratio": 2.4535633766809393,
+      "compressed_size": 42
+    }
+  },
+  "its": {
+    "qwerty": {
+      "compression_ratio": 2.3280709247208256,
+      "compressed_size": 27
+    },
+    "dvorak": {
+      "compression_ratio": 2.233145134782924,
+      "compressed_size": 27
+    },
+    "colemak": {
+      "compression_ratio": 2.2553433408323635,
+      "compressed_size": 29
+    },
+    "azerty": {
+      "compression_ratio": 2.280249944724103,
+      "compressed_size": 34
+    },
+    "qwertz": {
+      "compression_ratio": 2.291922697364428,
+      "compressed_size": 29
+    }
+  },
+  "over": {
+    "qwerty": {
+      "compression_ratio": 2.371596784358478,
+      "compressed_size": 41
+    },
+    "dvorak": {
+      "compression_ratio": 2.4444180815035503,
+      "compressed_size": 37
+    },
+    "colemak": {
+      "compression_ratio": 2.3385519968387243,
+      "compressed_size": 32
+    },
+    "azerty": {
+      "compression_ratio": 2.3790178674767133,
+      "compressed_size": 42
+    },
+    "qwertz": {
+      "compression_ratio": 2.4814483321943013,
+      "compressed_size": 41
+    }
+  },
+  "think": {
+    "qwerty": {
+      "compression_ratio": 2.535769804248347,
+      "compressed_size": 49
+    },
+    "dvorak": {
+      "compression_ratio": 2.4297363740101696,
+      "compressed_size": 49
+    },
+    "colemak": {
+      "compression_ratio": 2.453669518463582,
+      "compressed_size": 45
+    },
+    "azerty": {
+      "compression_ratio": 2.43937491017325,
+      "compressed_size": 54
+    },
+    "qwertz": {
+      "compression_ratio": 2.442985387277206,
+      "compressed_size": 54
+    }
+  },
+  "also": {
+    "qwerty": {
+      "compression_ratio": 2.4005512644104696,
+      "compressed_size": 41
+    },
+    "dvorak": {
+      "compression_ratio": 2.3881606015027073,
+      "compressed_size": 34
+    },
+    "colemak": {
+      "compression_ratio": 2.3302143826858845,
+      "compressed_size": 38
+    },
+    "azerty": {
+      "compression_ratio": 2.447960501667335,
+      "compressed_size": 41
+    },
+    "qwertz": {
+      "compression_ratio": 2.478250006938118,
+      "compressed_size": 41
+    }
+  },
+  "back": {
+    "qwerty": {
+      "compression_ratio": 2.366539621270071,
+      "compressed_size": 38
+    },
+    "dvorak": {
+      "compression_ratio": 2.336862801472345,
+      "compressed_size": 36
+    },
+    "colemak": {
+      "compression_ratio": 2.423365108575406,
+      "compressed_size": 39
+    },
+    "azerty": {
+      "compression_ratio": 2.4483330874039657,
+      "compressed_size": 41
+    },
+    "qwertz": {
+      "compression_ratio": 2.4174429842355307,
+      "compressed_size": 37
+    }
+  },
+  "after": {
+    "qwerty": {
+      "compression_ratio": 2.5322260854208993,
+      "compressed_size": 53
+    },
+    "dvorak": {
+      "compression_ratio": 2.4895163084843976,
+      "compressed_size": 49
+    },
+    "colemak": {
+      "compression_ratio": 2.484598587629163,
+      "compressed_size": 47
+    },
+    "azerty": {
+      "compression_ratio": 2.5029652626933316,
+      "compressed_size": 51
+    },
+    "qwertz": {
+      "compression_ratio": 2.4171992803557214,
+      "compressed_size": 48
+    }
+  },
+  "use": {
+    "qwerty": {
+      "compression_ratio": 2.2443289966989894,
+      "compressed_size": 32
+    },
+    "dvorak": {
+      "compression_ratio": 2.3154888888629155,
+      "compressed_size": 26
+    },
+    "colemak": {
+      "compression_ratio": 2.24367911049091,
+      "compressed_size": 25
+    },
+    "azerty": {
+      "compression_ratio": 2.3777961996344774,
+      "compressed_size": 33
+    },
+    "qwertz": {
+      "compression_ratio": 2.257916118307428,
+      "compressed_size": 28
+    }
+  },
+  "two": {
+    "qwerty": {
+      "compression_ratio": 2.302950691420311,
+      "compressed_size": 30
+    },
+    "dvorak": {
+      "compression_ratio": 2.2422508364941764,
+      "compressed_size": 25
+    },
+    "colemak": {
+      "compression_ratio": 2.259474648610364,
+      "compressed_size": 24
+    },
+    "azerty": {
+      "compression_ratio": 2.27695594028064,
+      "compressed_size": 34
+    },
+    "qwertz": {
+      "compression_ratio": 2.3137570729835004,
+      "compressed_size": 31
+    }
+  },
+  "how": {
+    "qwerty": {
+      "compression_ratio": 2.3071752827253595,
+      "compressed_size": 28
+    },
+    "dvorak": {
+      "compression_ratio": 2.231433386421545,
+      "compressed_size": 28
+    },
+    "colemak": {
+      "compression_ratio": 2.2325429504834426,
+      "compressed_size": 26
+    },
+    "azerty": {
+      "compression_ratio": 2.3617234444876125,
+      "compressed_size": 32
+    },
+    "qwertz": {
+      "compression_ratio": 2.261263697367563,
+      "compressed_size": 29
+    }
+  },
+  "our": {
+    "qwerty": {
+      "compression_ratio": 2.2826183723616866,
+      "compressed_size": 27
+    },
+    "dvorak": {
+      "compression_ratio": 2.2726238147808617,
+      "compressed_size": 28
+    },
+    "colemak": {
+      "compression_ratio": 2.2217387690439034,
+      "compressed_size": 28
+    },
+    "azerty": {
+      "compression_ratio": 2.2977048438029652,
+      "compressed_size": 32
+    },
+    "qwertz": {
+      "compression_ratio": 2.2894894130028502,
+      "compressed_size": 28
+    }
+  },
+  "work": {
+    "qwerty": {
+      "compression_ratio": 2.451404002285781,
+      "compressed_size": 39
+    },
+    "dvorak": {
+      "compression_ratio": 2.3519793208381508,
+      "compressed_size": 38
+    },
+    "colemak": {
+      "compression_ratio": 2.3331048540713013,
+      "compressed_size": 34
+    },
+    "azerty": {
+      "compression_ratio": 2.347025519375296,
+      "compressed_size": 39
+    },
+    "qwertz": {
+      "compression_ratio": 2.4346723444375655,
+      "compressed_size": 39
+    }
+  },
+  "first": {
+    "qwerty": {
+      "compression_ratio": 2.5984261812428127,
+      "compressed_size": 47
+    },
+    "dvorak": {
+      "compression_ratio": 2.541114679919195,
+      "compressed_size": 44
+    },
+    "colemak": {
+      "compression_ratio": 2.526357554435255,
+      "compressed_size": 46
+    },
+    "azerty": {
+      "compression_ratio": 2.4442820848894984,
+      "compressed_size": 53
+    },
+    "qwertz": {
+      "compression_ratio": 2.609827595332354,
+      "compressed_size": 53
+    }
+  },
+  "well": {
+    "qwerty": {
+      "compression_ratio": 2.321930674623753,
+      "compressed_size": 37
+    },
+    "dvorak": {
+      "compression_ratio": 2.420621178826282,
+      "compressed_size": 37
+    },
+    "colemak": {
+      "compression_ratio": 2.3600059639559037,
+      "compressed_size": 35
+    },
+    "azerty": {
+      "compression_ratio": 2.3787006925440513,
+      "compressed_size": 42
+    },
+    "qwertz": {
+      "compression_ratio": 2.3492344812635984,
+      "compressed_size": 40
+    }
+  },
+  "way": {
+    "qwerty": {
+      "compression_ratio": 2.251348157160248,
+      "compressed_size": 31
+    },
+    "dvorak": {
+      "compression_ratio": 2.234120357737507,
+      "compressed_size": 28
+    },
+    "colemak": {
+      "compression_ratio": 2.2899163383943395,
+      "compressed_size": 28
+    },
+    "azerty": {
+      "compression_ratio": 2.309596955152085,
+      "compressed_size": 28
+    },
+    "qwertz": {
+      "compression_ratio": 2.27541498008465,
+      "compressed_size": 31
+    }
+  },
+  "even": {
+    "qwerty": {
+      "compression_ratio": 2.331684125878422,
+      "compressed_size": 41
+    },
+    "dvorak": {
+      "compression_ratio": 2.455759803314012,
+      "compressed_size": 37
+    },
+    "colemak": {
+      "compression_ratio": 2.322578194504317,
+      "compressed_size": 34
+    },
+    "azerty": {
+      "compression_ratio": 2.34132842136861,
+      "compressed_size": 43
+    },
+    "qwertz": {
+      "compression_ratio": 2.3834340369910136,
+      "compressed_size": 43
+    }
+  },
+  "new": {
+    "qwerty": {
+      "compression_ratio": 2.289785164436624,
+      "compressed_size": 29
+    },
+    "dvorak": {
+      "compression_ratio": 2.336173763032572,
+      "compressed_size": 30
+    },
+    "colemak": {
+      "compression_ratio": 2.2813624035707254,
+      "compressed_size": 26
+    },
+    "azerty": {
+      "compression_ratio": 2.3083152507029334,
+      "compressed_size": 33
+    },
+    "qwertz": {
+      "compression_ratio": 2.291658962176371,
+      "compressed_size": 32
+    }
+  },
+  "want": {
+    "qwerty": {
+      "compression_ratio": 2.3645474207984356,
+      "compressed_size": 42
+    },
+    "dvorak": {
+      "compression_ratio": 2.4269014141747003,
+      "compressed_size": 34
+    },
+    "colemak": {
+      "compression_ratio": 2.3460223877903252,
+      "compressed_size": 32
+    },
+    "azerty": {
+      "compression_ratio": 2.3850006907603922,
+      "compressed_size": 39
+    },
+    "qwertz": {
+      "compression_ratio": 2.3659859830205905,
+      "compressed_size": 43
+    }
+  },
+  "because": {
+    "qwerty": {
+      "compression_ratio": 2.686591282537215,
+      "compressed_size": 66
+    },
+    "dvorak": {
+      "compression_ratio": 2.7694601433640273,
+      "compressed_size": 71
+    },
+    "colemak": {
+      "compression_ratio": 2.736196757333171,
+      "compressed_size": 64
+    },
+    "azerty": {
+      "compression_ratio": 2.6226973334052097,
+      "compressed_size": 71
+    },
+    "qwertz": {
+      "compression_ratio": 2.7076945984797085,
+      "compressed_size": 65
+    }
+  },
+  "any": {
+    "qwerty": {
+      "compression_ratio": 2.250914416906398,
+      "compressed_size": 32
+    },
+    "dvorak": {
+      "compression_ratio": 2.2317595271443142,
+      "compressed_size": 27
+    },
+    "colemak": {
+      "compression_ratio": 2.2646112523616324,
+      "compressed_size": 28
+    },
+    "azerty": {
+      "compression_ratio": 2.2843830119171202,
+      "compressed_size": 28
+    },
+    "qwertz": {
+      "compression_ratio": 2.3533411095826553,
+      "compressed_size": 28
+    }
+  },
+  "these": {
+    "qwerty": {
+      "compression_ratio": 2.407039044147192,
+      "compressed_size": 52
+    },
+    "dvorak": {
+      "compression_ratio": 2.538261576781444,
+      "compressed_size": 51
+    },
+    "colemak": {
+      "compression_ratio": 2.442707069704405,
+      "compressed_size": 43
+    },
+    "azerty": {
+      "compression_ratio": 2.595856382082812,
+      "compressed_size": 52
+    },
+    "qwertz": {
+      "compression_ratio": 2.5564361105882516,
+      "compressed_size": 49
+    }
+  },
+  "give": {
+    "qwerty": {
+      "compression_ratio": 2.34159094408039,
+      "compressed_size": 36
+    },
+    "dvorak": {
+      "compression_ratio": 2.3924156151198863,
+      "compressed_size": 41
+    },
+    "colemak": {
+      "compression_ratio": 2.3942670034412754,
+      "compressed_size": 34
+    },
+    "azerty": {
+      "compression_ratio": 2.3634205578232157,
+      "compressed_size": 38
+    },
+    "qwertz": {
+      "compression_ratio": 2.4074491281709816,
+      "compressed_size": 40
+    }
+  },
+  "day": {
+    "qwerty": {
+      "compression_ratio": 2.3453811978179204,
+      "compressed_size": 28
+    },
+    "dvorak": {
+      "compression_ratio": 2.2294078962017823,
+      "compressed_size": 26
+    },
+    "colemak": {
+      "compression_ratio": 2.2239906211857,
+      "compressed_size": 29
+    },
+    "azerty": {
+      "compression_ratio": 2.291871005643865,
+      "compressed_size": 29
+    },
+    "qwertz": {
+      "compression_ratio": 2.245758122631153,
+      "compressed_size": 27
+    }
+  },
+  "most": {
+    "qwerty": {
+      "compression_ratio": 2.419777119543141,
+      "compressed_size": 42
+    },
+    "dvorak": {
+      "compression_ratio": 2.3228312933540933,
+      "compressed_size": 37
+    },
+    "colemak": {
+      "compression_ratio": 2.4218260291441602,
+      "compressed_size": 38
+    },
+    "azerty": {
+      "compression_ratio": 2.379751320857927,
+      "compressed_size": 39
+    },
+    "qwertz": {
+      "compression_ratio": 2.390074019500692,
+      "compressed_size": 39
+    }
+  },
+  "us": {
+    "qwerty": {
+      "compression_ratio": 2.220842520019134,
+      "compressed_size": 20
+    },
+    "dvorak": {
+      "compression_ratio": 2.206480898269466,
+      "compressed_size": 17
+    },
+    "colemak": {
+      "compression_ratio": 2.161180960027121,
+      "compressed_size": 17
+    },
+    "azerty": {
+      "compression_ratio": 2.219176833895121,
+      "compressed_size": 22
+    },
+    "qwertz": {
+      "compression_ratio": 2.2128534864214706,
+      "compressed_size": 18
+    }
+  },
+  "quantum": {
+    "qwerty": {
+      "compression_ratio": 2.7699513682293864,
+      "compressed_size": 71
+    },
+    "dvorak": {
+      "compression_ratio": 2.5704744740683796,
+      "compressed_size": 72
+    },
+    "colemak": {
+      "compression_ratio": 2.627751348122085,
+      "compressed_size": 68
+    },
+    "azerty": {
+      "compression_ratio": 2.5970695294438335,
+      "compressed_size": 71
+    },
+    "qwertz": {
+      "compression_ratio": 2.6003639217567462,
+      "compressed_size": 76
+    }
+  },
+  "keyboard": {
+    "qwerty": {
+      "compression_ratio": 2.9001966489569746,
+      "compressed_size": 87
+    },
+    "dvorak": {
+      "compression_ratio": 2.618022329315215,
+      "compressed_size": 79
+    },
+    "colemak": {
+      "compression_ratio": 2.650778857505149,
+      "compressed_size": 68
+    },
+    "azerty": {
+      "compression_ratio": 2.7747957063455586,
+      "compressed_size": 76
+    },
+    "qwertz": {
+      "compression_ratio": 2.8172642527114244,
+      "compressed_size": 79
+    }
+  },
+  "compression": {
+    "qwerty": {
+      "compression_ratio": 3.310477792422936,
+      "compressed_size": 108
+    },
+    "dvorak": {
+      "compression_ratio": 3.2252636171144733,
+      "compressed_size": 103
+    },
+    "colemak": {
+      "compression_ratio": 3.160008897003885,
+      "compressed_size": 94
+    },
+    "azerty": {
+      "compression_ratio": 3.34292977494525,
+      "compressed_size": 109
+    },
+    "qwertz": {
+      "compression_ratio": 3.203639055553942,
+      "compressed_size": 109
+    }
+  },
+  "cerebras": {
+    "qwerty": {
+      "compression_ratio": 2.642380096839866,
+      "compressed_size": 83
+    },
+    "dvorak": {
+      "compression_ratio": 2.6175415917473375,
+      "compressed_size": 81
+    },
+    "colemak": {
+      "compression_ratio": 2.669397088232079,
+      "compressed_size": 65
+    },
+    "azerty": {
+      "compression_ratio": 2.855557936679421,
+      "compressed_size": 77
+    },
+    "qwertz": {
+      "compression_ratio": 2.673259958721075,
+      "compressed_size": 85
+    }
+  },
+  "artificial": {
+    "qwerty": {
+      "compression_ratio": 3.044379502048165,
+      "compressed_size": 98
+    },
+    "dvorak": {
+      "compression_ratio": 2.797324333182899,
+      "compressed_size": 103
+    },
+    "colemak": {
+      "compression_ratio": 3.052182942562945,
+      "compressed_size": 93
+    },
+    "azerty": {
+      "compression_ratio": 2.981152482483828,
+      "compressed_size": 101
+    },
+    "qwertz": {
+      "compression_ratio": 3.113762081763769,
+      "compressed_size": 94
+    }
+  },
+  "intelligence": {
+    "qwerty": {
+      "compression_ratio": 3.0165039996761616,
+      "compressed_size": 117
+    },
+    "dvorak": {
+      "compression_ratio": 3.0881436274149494,
+      "compressed_size": 106
+    },
+    "colemak": {
+      "compression_ratio": 3.1976213656502637,
+      "compressed_size": 114
+    },
+    "azerty": {
+      "compression_ratio": 3.436643857125677,
+      "compressed_size": 114
+    },
+    "qwertz": {
+      "compression_ratio": 3.0914137449853802,
+      "compressed_size": 126
+    }
+  },
+  "machine": {
+    "qwerty": {
+      "compression_ratio": 2.7713896441934103,
+      "compressed_size": 76
+    },
+    "dvorak": {
+      "compression_ratio": 2.5897617108513336,
+      "compressed_size": 62
+    },
+    "colemak": {
+      "compression_ratio": 2.6587905995228027,
+      "compressed_size": 66
+    },
+    "azerty": {
+      "compression_ratio": 2.7567652482927025,
+      "compressed_size": 68
+    },
+    "qwertz": {
+      "compression_ratio": 2.6854609645017353,
+      "compressed_size": 64
+    }
+  },
+  "learning": {
+    "qwerty": {
+      "compression_ratio": 2.7966521123889705,
+      "compressed_size": 78
+    },
+    "dvorak": {
+      "compression_ratio": 2.8735211399926204,
+      "compressed_size": 72
+    },
+    "colemak": {
+      "compression_ratio": 2.599150844320729,
+      "compressed_size": 73
+    },
+    "azerty": {
+      "compression_ratio": 2.766678459693466,
+      "compressed_size": 83
+    },
+    "qwertz": {
+      "compression_ratio": 2.8821378827604853,
+      "compressed_size": 77
+    }
+  },
+  "neural": {
+    "qwerty": {
+      "compression_ratio": 2.5488111109296865,
+      "compressed_size": 55
+    },
+    "dvorak": {
+      "compression_ratio": 2.6590521037737167,
+      "compressed_size": 54
+    },
+    "colemak": {
+      "compression_ratio": 2.454590957406198,
+      "compressed_size": 53
+    },
+    "azerty": {
+      "compression_ratio": 2.5379277313500457,
+      "compressed_size": 59
+    },
+    "qwertz": {
+      "compression_ratio": 2.629509348527292,
+      "compressed_size": 66
+    }
+  },
+  "network": {
+    "qwerty": {
+      "compression_ratio": 2.689007702391951,
+      "compressed_size": 63
+    },
+    "dvorak": {
+      "compression_ratio": 2.752904311538534,
+      "compressed_size": 65
+    },
+    "colemak": {
+      "compression_ratio": 2.683222091728886,
+      "compressed_size": 63
+    },
+    "azerty": {
+      "compression_ratio": 2.6012248337627017,
+      "compressed_size": 72
+    },
+    "qwertz": {
+      "compression_ratio": 2.749665247024116,
+      "compressed_size": 71
+    }
+  },
+  "algorithm": {
+    "qwerty": {
+      "compression_ratio": 2.7222029432190764,
+      "compressed_size": 98
+    },
+    "dvorak": {
+      "compression_ratio": 2.8256588450000115,
+      "compressed_size": 86
+    },
+    "colemak": {
+      "compression_ratio": 2.841257185655232,
+      "compressed_size": 84
+    },
+    "azerty": {
+      "compression_ratio": 2.8297762097545465,
+      "compressed_size": 85
+    },
+    "qwertz": {
+      "compression_ratio": 2.7960633928976755,
+      "compressed_size": 94
+    }
+  },
+  "data": {
+    "qwerty": {
+      "compression_ratio": 2.4289637984484793,
+      "compressed_size": 42
+    },
+    "dvorak": {
+      "compression_ratio": 2.3192397827569255,
+      "compressed_size": 36
+    },
+    "colemak": {
+      "compression_ratio": 2.3068691356512003,
+      "compressed_size": 32
+    },
+    "azerty": {
+      "compression_ratio": 2.4347080989294265,
+      "compressed_size": 42
+    },
+    "qwertz": {
+      "compression_ratio": 2.42427362593485,
+      "compressed_size": 39
+    }
+  },
+  "science": {
+    "qwerty": {
+      "compression_ratio": 2.7962753415843107,
+      "compressed_size": 71
+    },
+    "dvorak": {
+      "compression_ratio": 2.6842551719231316,
+      "compressed_size": 63
+    },
+    "colemak": {
+      "compression_ratio": 2.673652021231802,
+      "compressed_size": 60
+    },
+    "azerty": {
+      "compression_ratio": 2.7141889225036695,
+      "compressed_size": 77
+    },
+    "qwertz": {
+      "compression_ratio": 2.587505412127791,
+      "compressed_size": 74
+    }
+  },
+  "computer": {
+    "qwerty": {
+      "compression_ratio": 2.683545946159998,
+      "compressed_size": 75
+    },
+    "dvorak": {
+      "compression_ratio": 2.7540102328958285,
+      "compressed_size": 73
+    },
+    "colemak": {
+      "compression_ratio": 2.704108992598993,
+      "compressed_size": 71
+    },
+    "azerty": {
+      "compression_ratio": 2.982978816026746,
+      "compressed_size": 86
+    },
+    "qwertz": {
+      "compression_ratio": 2.922162600534175,
+      "compressed_size": 88
+    }
+  },
+  "programming": {
+    "qwerty": {
+      "compression_ratio": 2.9076679942817845,
+      "compressed_size": 119
+    },
+    "dvorak": {
+      "compression_ratio": 2.9138647303656358,
+      "compressed_size": 109
+    },
+    "colemak": {
+      "compression_ratio": 2.9541195050833498,
+      "compressed_size": 93
+    },
+    "azerty": {
+      "compression_ratio": 3.3824087905141194,
+      "compressed_size": 121
+    },
+    "qwertz": {
+      "compression_ratio": 3.1884804850977835,
+      "compressed_size": 107
+    }
+  },
+  "python": {
+    "qwerty": {
+      "compression_ratio": 2.6943671270916574,
+      "compressed_size": 59
+    },
+    "dvorak": {
+      "compression_ratio": 2.564843340017667,
+      "compressed_size": 56
+    },
+    "colemak": {
+      "compression_ratio": 2.554944914773123,
+      "compressed_size": 58
+    },
+    "azerty": {
+      "compression_ratio": 2.6213668301068136,
+      "compressed_size": 64
+    },
+    "qwertz": {
+      "compression_ratio": 2.629942407080293,
+      "compressed_size": 65
+    }
+  },
+  "javascript": {
+    "qwerty": {
+      "compression_ratio": 3.071055303422096,
+      "compressed_size": 93
+    },
+    "dvorak": {
+      "compression_ratio": 2.785519741007894,
+      "compressed_size": 99
+    },
+    "colemak": {
+      "compression_ratio": 2.9431402384363032,
+      "compressed_size": 81
+    },
+    "azerty": {
+      "compression_ratio": 3.235613586847122,
+      "compressed_size": 106
+    },
+    "qwertz": {
+      "compression_ratio": 2.8541616244151258,
+      "compressed_size": 108
+    }
+  },
+  "research": {
+    "qwerty": {
+      "compression_ratio": 2.6666565716401536,
+      "compressed_size": 86
+    },
+    "dvorak": {
+      "compression_ratio": 2.8640193274029944,
+      "compressed_size": 78
+    },
+    "colemak": {
+      "compression_ratio": 2.7347797964063107,
+      "compressed_size": 67
+    },
+    "azerty": {
+      "compression_ratio": 2.7750877406751036,
+      "compressed_size": 92
+    },
+    "qwertz": {
+      "compression_ratio": 2.807316294061459,
+      "compressed_size": 74
+    }
+  },
+  "development": {
+    "qwerty": {
+      "compression_ratio": 3.146024535099122,
+      "compressed_size": 102
+    },
+    "dvorak": {
+      "compression_ratio": 2.9824614928682216,
+      "compressed_size": 104
+    },
+    "colemak": {
+      "compression_ratio": 3.146230635241906,
+      "compressed_size": 96
+    },
+    "azerty": {
+      "compression_ratio": 2.963265432245164,
+      "compressed_size": 123
+    },
+    "qwertz": {
+      "compression_ratio": 3.195588936089168,
+      "compressed_size": 104
+    }
+  }
+}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.keyboard-container {
+  width: 1000px;
+  height: 300px;
+  max-width: calc(100% - 80px);
+  max-height: calc(100vh - 80px);
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.terminal-box {
+  width: 80%;
+  height: 150px;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-family: 'Courier New', monospace;
+  font-size: 18px;
+  background-color: #000;
+  color: #0f0;
+  border: 2px solid #333;
+  border-radius: 5px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+.MagicKeyboardProSilver {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: linear-gradient(139deg, #DEDEDE 0%, #CDCECF 100%);
+  border-radius: 40px;
+  outline: 2px #B4B4B4 solid;
+}
+.key {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+.key:active {
+  transform: scale(0.95);
+}
+.BackButton {
+  position: absolute;
+  border-radius: 15px;
+  outline: 2px rgba(139.19, 139.19, 139.19, 0.95) solid;
+}
+.Button {
+  position: absolute;
+  background: white;
+  border-radius: 15px;
+  border: 2px white solid;
+}
+.Letter {
+  position: absolute;
+  text-align: center;
+  color: #848484;
+  font-family: SF Pro Display, sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+</style>
+</head>
+<body>
+<div id="terminal" class="terminal-box"></div>
+<div class="keyboard-container">
+  <div class="MagicKeyboardProSilver">
+    <!-- Number keys -->
+    <div class="key Num0" style="width: 100px; height: 60px; left: 400px; top: 240px;" data-key="0">
+      <div class="BackButton" style="width: 95px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 95px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 40px; top: 15px; font-size: 24px;">0</div>
+    </div>
+    <div class="key Num1" style="width: 60px; height: 60px; left: 400px; top: 170px;" data-key="1">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">1</div>
+    </div>
+    <div class="key Num2" style="width: 60px; height: 60px; left: 470px; top: 170px;" data-key="2">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">2</div>
+    </div>
+    <div class="key Num3" style="width: 60px; height: 60px; left: 540px; top: 170px;" data-key="3">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">3</div>
+    </div>
+    <div class="key Num4" style="width: 60px; height: 60px; left: 400px; top: 100px;" data-key="4">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">4</div>
+    </div>
+    <div class="key Num5" style="width: 60px; height: 60px; left: 470px; top: 100px;" data-key="5">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">5</div>
+    </div>
+    <div class="key Num6" style="width: 60px; height: 60px; left: 540px; top: 100px;" data-key="6">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">6</div>
+    </div>
+    <div class="key Num7" style="width: 60px; height: 60px; left: 400px; top: 30px;" data-key="7">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">7</div>
+    </div>
+    <div class="key Num8" style="width: 60px; height: 60px; left: 470px; top: 30px;" data-key="8">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">8</div>
+    </div>
+    <div class="key Num9" style="width: 60px; height: 60px; left: 540px; top: 30px;" data-key="9">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">9</div>
+    </div>
+
+    <!-- Function keys -->
+    <div class="key F16" style="width: 60px; height: 60px; left: 610px; top: 30px;" data-key="F16">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 20px; top: 20px; font-size: 14px; font-weight: 500;">F16</div>
+    </div>
+    <div class="key F17" style="width: 60px; height: 60px; left: 680px; top: 30px;" data-key="F17">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 20px; top: 20px; font-size: 14px; font-weight: 500;">F17</div>
+    </div>
+    <div class="key F18" style="width: 60px; height: 60px; left: 750px; top: 30px;" data-key="F18">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 20px; top: 20px; font-size: 14px; font-weight: 500;">F18</div>
+    </div>
+    <div class="key F19" style="width: 60px; height: 60px; left: 820px; top: 30px;" data-key="F19">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 20px; top: 20px; font-size: 14px; font-weight: 500;">F19</div>
+    </div>
+
+    <!-- Special keys -->
+    <div class="key Clear" style="width: 60px; height: 60px; left: 610px; top: 100px;" data-key="clear">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 15px; top: 20px; font-size: 14px;">clear</div>
+    </div>
+
+    <!-- Letter keys (first row) -->
+    <div class="key KeyQ" style="width: 60px; height: 60px; left: 30px; top: 30px;" data-key="q">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">Q</div>
+    </div>
+    <div class="key KeyW" style="width: 60px; height: 60px; left: 100px; top: 30px;" data-key="w">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">W</div>
+    </div>
+    <div class="key KeyE" style="width: 60px; height: 60px; left: 170px; top: 30px;" data-key="e">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">E</div>
+    </div>
+    <div class="key KeyR" style="width: 60px; height: 60px; left: 240px; top: 30px;" data-key="r">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">R</div>
+    </div>
+    <div class="key KeyT" style="width: 60px; height: 60px; left: 310px; top: 30px;" data-key="t">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">T</div>
+    </div>
+
+    <!-- Letter keys (second row) -->
+    <div class="key KeyA" style="width: 60px; height: 60px; left: 30px; top: 100px;" data-key="a">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">A</div>
+    </div>
+    <div class="key KeyS" style="width: 60px; height: 60px; left: 100px; top: 100px;" data-key="s">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">S</div>
+    </div>
+    <div class="key KeyD" style="width: 60px; height: 60px; left: 170px; top: 100px;" data-key="d">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">D</div>
+    </div>
+    <div class="key KeyF" style="width: 60px; height: 60px; left: 240px; top: 100px;" data-key="f">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">F</div>
+    </div>
+    <div class="key KeyG" style="width: 60px; height: 60px; left: 310px; top: 100px;" data-key="g">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">G</div>
+    </div>
+
+    <!-- Letter keys (third row) -->
+    <div class="key KeyZ" style="width: 60px; height: 60px; left: 30px; top: 170px;" data-key="z">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">Z</div>
+    </div>
+    <div class="key KeyX" style="width: 60px; height: 60px; left: 100px; top: 170px;" data-key="x">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">X</div>
+    </div>
+    <div class="key KeyC" style="width: 60px; height: 60px; left: 170px; top: 170px;" data-key="c">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">C</div>
+    </div>
+    <div class="key KeyV" style="width: 60px; height: 60px; left: 240px; top: 170px;" data-key="v">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">V</div>
+    </div>
+    <div class="key KeyB" style="width: 60px; height: 60px; left: 310px; top: 170px;" data-key="b">
+      <div class="BackButton" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 55px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 25px; top: 15px; font-size: 24px;">B</div>
+    </div>
+
+    <!-- Space bar -->
+    <div class="key Space" style="width: 300px; height: 60px; left: 100px; top: 240px;" data-key=" ">
+      <div class="BackButton" style="width: 295px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Button" style="width: 295px; height: 55px; left: 3px; top: 3px;"></div>
+      <div class="Letter" style="left: 130px; top: 15px; font-size: 24px;">Space</div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const terminal = document.getElementById('terminal');
+  const keys = document.querySelectorAll('.key');
+
+  // Add click event to all keys
+  keys.forEach(key => {
+    key.addEventListener('click', function() {
+      const keyValue = this.getAttribute('data-key');
+
+      // Handle different key types
+      if (keyValue === 'clear') {
+        // Clear the terminal
+        terminal.textContent = '';
+      } else {
+        // Add the key value to the terminal
+        terminal.textContent += keyValue;
+      }
+
+      // Auto-scroll to bottom of terminal
+      terminal.scrollTop = terminal.scrollHeight;
+    });
+  });
+
+  // Add keyboard focus to terminal
+  terminal.setAttribute('tabindex', '0');
+  terminal.focus();
+});
+</script>
+</body>
+</html>
